@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<packageList>
+	<packageInfo author="华为终端有限公司" feature="为FIDO（快速线上身份认证）协议提供底层能力支撑。" package="com.huawei.hwasm" label="com.huawei.hwasm">
+	</packageInfo>
+	<packageInfo author="华为终端有限公司" feature="智能截屏，您可以直接通过指关节在屏幕上画闭合图形进行自定义截屏，指关节画出的区域即为截取的区域，让截屏更加灵活易用。" package="com.qeexo.smartshot" label="com.qeexo.smartshot">
+	</packageInfo>
+	<packageInfo author="华为终端有限公司" feature="为满足FIDO（快速线上身份认证）协议的应用提供基础能力支持，第三方应用可通过该应用绑定指纹完成在线身份认证。" package="com.huawei.fido.uafclient" label="com.huawei.fido.uafclient">
+	</packageInfo>
+	<packageInfo author="华为终端有限公司" feature="定制系统资源。" package="com.android.frameworkres.overlay" label="com.android.frameworkres.overlay">
+	</packageInfo>
+	<packageInfo author="华为终端有限公司" feature="Huawei Histen音效设置，用户可以根据喜好设置和配置音效均衡器等信息。" package="com.huawei.imedia.sws" label="com.huawei.imedia.sws">
+	</packageInfo>
+	<packageInfo author="启运科技公司" feature="可以通过小萌逗给拍摄的3D人偶模型变换发型、服装、动作等，制作的照片或视频成果可以直接分享出去。" package="co.spe3d.paipai_huawei" label="co.spe3d.paipai_huawei">
+	</packageInfo>
+	<packageInfo author="武汉落地创意文化传播有限公司" feature="可通过造物家给拍摄的3D人偶模型装饰发型、服装等，并且可选择合适的尺寸打印该人偶" package="com.eazer.app.huawei" label="com.eazer.app.huawei">
+	</packageInfo>
+	<packageInfo author="华为终端有限公司" feature="智能遥控，只需一部手机即可用于控制不同空调或电视等电器，帮您省去使用多个遥控器的烦恼。" package="com.huawei.android.remotecontroller" label="com.huawei.android.remotecontroller">
+	</packageInfo>
+	<packageInfo author="华为终端有限公司" feature="游戏助手，对游戏进行标记，并且可以设置游戏省电模式，免打扰，按键防误触功能。" package="com.huawei.gameassistant" label="com.huawei.gameassistant">
+	</packageInfo>
+</packageList>

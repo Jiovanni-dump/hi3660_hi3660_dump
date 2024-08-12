@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="gb2312"?>
+<!-- Emui6.0 custom for STF -->
+<Config>
+    <Enable>true</Enable>
+
+    <Custom>
+        <AlgoWideColorSpace>true</AlgoWideColorSpace>
+    </Custom>
+
+    <Thumbnail type="MICRO">
+    </Thumbnail>
+    <Thumbnail type="FAST">
+        <Algo image="WIDE_COLOR_SPACE">ACM</Algo>
+    </Thumbnail>
+    <Thumbnail type="ANIMATION">
+        <Algo image="WIDE_COLOR_SPACE">ACM</Algo>
+    </Thumbnail>
+    <Thumbnail type="FULLSCREEN">
+        <Algo>ACM</Algo>
+        <Algo>SR</Algo>
+        <Algo>SHARPNESS</Algo>
+        <SaveCommonInfo>true</SaveCommonInfo>
+    </Thumbnail>
+    <Thumbnail type="HALFSCREEN">
+        <Algo>ACM</Algo>
+        <SaveCommonInfo>true</SaveCommonInfo>
+    </Thumbnail>
+    <Thumbnail type="DEFAULT">
+        <Algo>ACM</Algo>
+    </Thumbnail>
+
+    <Tile type="NON_SR">
+        <Algo>ACM</Algo>
+    </Tile>
+    <Tile type="SR">
+        <Algo>SR</Algo>
+        <Algo>SHARPNESS</Algo>
+    </Tile>
+</Config>

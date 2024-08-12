@@ -1,0 +1,4 @@
+/data/hw_init/product/app/HwRemoteController/HwRemoteController.apk
+/data/hw_init/product/app/eazer/eazer.apk
+/data/hw_init/product/app/Insta3D/Insta3D.apk
+/data/hw_init/product/app/HwGameAssistant/HwGameAssistant.apk

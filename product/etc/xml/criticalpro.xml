@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<packages>
+<package name="com.huawei.camera2.mode.cosplay" path="product/etc/camera/preset_plugin" ss="5A0453BAF92CB54BE8533AA569C75CAB5A69FFE084376B96942F66A2B2FCDEAD" version="1"/>
+<package name="com.huawei.imedia.sws" path="data/hw_init/product/app/SWSHeadphone" ss="DF79FF126ED7DE580E83EFFB40A14AF59B3DB81A7ED80FAD1A43033EAB6432C7" version="26"/>
+<package name="com.qeexo.smartshot" path="product/app/HwSmartShot" ss="E0C4D5B3E48326D9DF234E5BEC656FBA48017440EBA14E643CED38FDA2CEA575" version="80000350"/>
+<package name="com.huawei.hwasm" path="product/app/HwFidoAsm" ss="DF79FF126ED7DE580E83EFFB40A14AF59B3DB81A7ED80FAD1A43033EAB6432C7" version="80000301"/>
+<package name="com.huawei.fido.uafclient" path="product/app/HwFidoClient" ss="0C872997D85FCB7CBE94FFB700007C2A9179E699925FF74040D9F2C4B185CE64" version="80000301"/>
+<package name="com.android.frameworkres.overlay" path="product/overlay" ss="0C872997D85FCB7CBE94FFB700007C2A9179E699925FF74040D9F2C4B185CE64" version="1"/>
+<package name="co.spe3d.paipai_huawei" path="data/hw_init/product/app/Insta3D" ss="7E0D8F33EE74D4260A27EF11CCE69D528F23B1D6CEA0761F39EE6A2127628806" version="24500"/>
+<package name="com.eazer.app.huawei" path="data/hw_init/product/app/eazer" ss="A9A05DE1F4B36D958DCF4726CDF1A1E42004046BB718D15810172CA9A53AC73B" version="1632"/>
+<package name="com.huawei.gameassistant" path="data/hw_init/product/app/HwGameAssistant" ss="DF79FF126ED7DE580E83EFFB40A14AF59B3DB81A7ED80FAD1A43033EAB6432C7" version="800000352"/>
+<package name="com.huawei.android.remotecontroller" path="data/hw_init/product/app/HwRemoteController" ss="DF79FF126ED7DE580E83EFFB40A14AF59B3DB81A7ED80FAD1A43033EAB6432C7" version="800300"/>
+</packages>

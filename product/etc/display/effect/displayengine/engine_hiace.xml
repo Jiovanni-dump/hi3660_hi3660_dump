@@ -1,0 +1,56 @@
+<DisplayEngineConfig>
+	<id>23</id>
+	<updated>2017-6-16</updated>
+	<feature name="HIACE">
+		<mode name="MODE_SRE">
+			<param name="iDoLCE">0</param>
+			<param name="iDoAPLC">0</param>
+			<param name="iDoSRE">1</param>
+			<param name="iMode">0</param>
+			<param name="iLevel">1</param>
+			<param name="ilhist_sft">0</param>
+			<param name="iLaSensorSREOnTH">1000</param>
+			<param name="iGlobalHistBlackPos">16</param>
+			<param name="iGlobalHistWhitePos">240</param>
+			<param name="iGlobalHistBlackWeight">51</param>
+			<param name="iGlobalHistWhiteWeight">51</param>
+			<param name="iGlobalHistZeroCutRatio">486</param>
+			<param name="iGlobalHistSlopeCutRatio">410</param>
+			<param name="chCfgName">/product/etc/display/effect/algorithm/hdr_engine_STF.xml</param>
+		</mode>
+		<mode name="MODE_IMAGE">
+			<param name="iDoLCE">1</param>
+			<param name="iDoAPLC">0</param>
+			<param name="iDoSRE">0</param>
+			<param name="iMode">0</param>
+			<param name="iLevel">1</param>
+			<param name="ilhist_sft">0</param>
+			<param name="iLaSensorSREOnTH">1000</param>
+			<param name="iGlobalHistBlackPos">16</param>
+			<param name="iGlobalHistWhitePos">240</param>
+			<param name="iGlobalHistBlackWeight">51</param>
+			<param name="iGlobalHistWhiteWeight">51</param>
+			<param name="iGlobalHistZeroCutRatio">486</param>
+			<param name="iGlobalHistSlopeCutRatio">410</param>
+			<param name="chCfgName">/product/etc/display/effect/algorithm/hdr_engine_STF.xml</param>
+		</mode>
+		<mode name="MODE_VIDEO">
+			<param name="iDoLCE">1</param>
+			<param name="iDoAPLC">0</param>
+			<param name="iDoSRE">0</param>
+			<param name="iMode">0</param>
+			<param name="iLevel">2</param>
+			<param name="ilhist_sft">0</param>
+			<param name="iLaSensorSREOnTH">1000</param>
+			<param name="iGlobalHistBlackPos">16</param>
+			<param name="iGlobalHistWhitePos">240</param>
+			<param name="iGlobalHistBlackWeight">51</param>
+			<param name="iGlobalHistWhiteWeight">51</param>
+			<param name="iGlobalHistZeroCutRatio">486</param>
+			<param name="iGlobalHistSlopeCutRatio">410</param>
+			<param name="chCfgName">/product/etc/display/effect/algorithm/hdr_engine_STF.xml</param>
+		</mode>
+
+	</feature>
+</DisplayEngineConfig>
+

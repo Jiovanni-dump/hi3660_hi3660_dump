@@ -1,0 +1,2205 @@
+<?xml version="1.0" encoding="utf-8"?>
+<?xml-stylesheet type="text/xsl" href="therm.xsl"?>
+<!--
+ * Copyright (C) 2014 Huawei Inc.
+ * Cpu Freq Config
+ *
+                TYPE                                            AVALIABLE_VALUE
+        cpu_maxprofile                    533000 999000 1402000 1709000 1844000
+        cpu_minprofile                    533000 999000 1402000 1709000 1844000
+        cpu_a15_maxprofile                903000 1421000 1805000 2112000 2458000 2612000
+        cpu_a15_minprofile                903000 1421000 1805000 2112000 2458000 2612000
+        gpu_maxprofile                    400000000 533000000 807000000 884000000
+        gpu_minprofile                    400000000 533000000 807000000 884000000
+        ddr_maxprofile                    400000000 667000000 1067000000 1333000000 1600000000 1866000000
+        ddr_minprofile                    400000000 667000000 1067000000 1333000000 1600000000 1866000000
+        cpu_number_max                    1,2,3,4
+        cpu_number_min                    1,2,3,4
+        cpu_a15_number_max                0,1,2,3,4
+        cpu_a15_number_min                0,1,2,3,4
+        note:
+        1. if policy item has not configured, it means close cpupolicy of previous scene.
+        2. policy type default value is 0, policy value default value is -1
+        3. Don't set ddr_maxprofile for K3V3+ platform
+        4. Don't set <threshold_up>0</threshold_up> and <threshold_down>0</threshold_down> for K3V3+ platform
+        last modify time:2014-10-18
+-->
+<!-- scene id
+only support these scene
+10000    default, must config.
+10001    popular browser app
+10002    popular 3D game
+10003    popular ebook
+10007    popular camera(fullscreen)
+10009    popular video
+10011    popular 2D Game
+10018    little camera(not fullscreen)
+20004    screen off
+id >= 100000  cust config, white list
+-->
+<thermal version="2.3">
+<scene name="default" id="10000">
+<sensor_temp name="shell_temp" type="22" enable="true" min_temp="0" step="5" to_celsius="1000">
+</sensor_temp>
+<sensor_temp name="battery" type="9" enable="true" min_temp="-20" step="5" to_celsius="1000">
+    <item>
+        <thresholds>-10</thresholds>
+        <thresholds_clr>-8</thresholds_clr>                    <!--  -100C =< T < -5C  -->
+        <action battery_level_tri="29" battery_level_clr="30"> <!-- 0% =< A < 30%  -->
+            <cpu>1402000</cpu>
+            <cpu_a15>903000</cpu_a15>
+            <gpu>400000000</gpu>
+            <boost>4</boost>
+            <camera_fps>4</camera_fps>
+        </action>
+        <action battery_level_tri="100" battery_level_clr="101"> <!-- 0% =< A < 100%  -->
+            <cpu>1402000</cpu>
+            <cpu_a15>903000</cpu_a15>
+            <gpu>400000000</gpu>
+            <boost>4</boost>
+            <camera_fps>3</camera_fps>
+        </action>
+    </item> 
+    <item>
+        <thresholds>-6</thresholds>
+        <thresholds_clr>-5</thresholds_clr>                    <!--  -100C =< T < -5C  -->
+        <action battery_level_tri="100" battery_level_clr="101"> <!-- 0% =< A < 100%  -->
+            <cpu>0</cpu>
+            <cpu_a15>0</cpu_a15>
+            <gpu>0</gpu>
+            <boost>0</boost>
+            <camera_fps>3</camera_fps>
+        </action>
+    </item>
+    <item>
+        <thresholds>34</thresholds>
+        <thresholds_clr>32</thresholds_clr>
+        <action>
+            <cpu>0</cpu>
+            <cpu_a15>0</cpu_a15>
+            <gpu>0</gpu>
+            <uvoltage>9</uvoltage>
+            <ucurrent>0</ucurrent>
+            <camera_fps>0</camera_fps>
+            <lcd>0</lcd>
+        </action>
+    </item>
+    <item>
+        <thresholds>36</thresholds>
+        <thresholds_clr>34</thresholds_clr>
+        <action>
+            <cpu>0</cpu>
+            <cpu_a15>0</cpu_a15>
+            <gpu>0</gpu>
+            <uvoltage>5</uvoltage>
+            <ucurrent>0</ucurrent>
+            <camera_fps>0</camera_fps>
+            <lcd>0</lcd>
+        </action>
+    </item>
+    <item>
+        <thresholds>38</thresholds>
+        <thresholds_clr>36</thresholds_clr>
+        <action>
+            <cpu>0</cpu>
+            <cpu_a15>1421000</cpu_a15>
+            <gpu>400000000</gpu>
+            <uvoltage>5</uvoltage>
+            <ucurrent>1500</ucurrent>
+            <camera_fps>2</camera_fps>
+            <lcd>11</lcd>
+        </action>
+    </item>
+    <item>
+        <thresholds>40</thresholds>
+        <thresholds_clr>38</thresholds_clr>
+        <action>
+            <cpu>1402000</cpu>
+            <cpu_a15>903000</cpu_a15>
+            <gpu>400000000</gpu>
+            <uvoltage>5</uvoltage>
+            <ucurrent>1000</ucurrent>
+            <camera_fps>2</camera_fps>
+            <lcd>11</lcd>
+        </action>
+    </item>
+    <item>
+        <thresholds>45</thresholds>
+        <thresholds_clr>43</thresholds_clr>
+        <action>
+            <cpu>999000</cpu>
+            <cpu_a15>903000</cpu_a15>
+            <gpu>400000000</gpu>
+            <uvoltage>5</uvoltage>
+            <ucurrent>1000</ucurrent>
+            <camera_fps>2</camera_fps>
+            <lcd>12</lcd>
+            <thermal_safe_mode>0</thermal_safe_mode>
+        </action>
+    </item>
+    <item>
+        <thresholds>54</thresholds>
+        <thresholds_clr>51</thresholds_clr>
+        <action>
+            <cpu>533000</cpu>
+            <cpu_a15>903000</cpu_a15>
+            <gpu>400000000</gpu>
+            <uvoltage>5</uvoltage>
+            <ucurrent>900</ucurrent>
+            <camera_fps>2</camera_fps>
+            <lcd>16</lcd>
+            <thermal_safe_mode>1</thermal_safe_mode>
+        </action>
+    </item>
+ </sensor_temp>
+<sensor_temp name="cpu" type="0" enable="true" min_temp="0" step="5">
+    <item>
+        <thresholds>75</thresholds>
+        <thresholds_clr>73</thresholds_clr>
+        <action>
+            <shutdown>10000</shutdown>
+        </action>
+    </item>
+</sensor_temp>
+<sensor_temp name="ucurrent" type="2" enable="true" min_temp="0" step="5">
+    <item>
+        <thresholds>85</thresholds>
+        <thresholds_clr>83</thresholds_clr>
+        <action>
+            <shutdown>10000</shutdown>
+        </action>
+    </item>
+</sensor_temp>
+<sensor_temp name="pa" type="1" enable="true" min_temp="0" step="5">
+    <item>
+        <thresholds>75</thresholds>
+        <thresholds_clr>73</thresholds_clr>
+        <action>
+            <shutdown>10000</shutdown>
+        </action>
+    </item>
+</sensor_temp>
+</scene>
+<scene name="browser" id="10001">
+<sensor_temp name="shell_temp" type="22" enable="true" min_temp="0" step="5" to_celsius="1000">
+</sensor_temp>
+<sensor_temp name="battery" type="9" enable="true" min_temp="-20" step="5" to_celsius="1000">
+     <item>
+        <thresholds>35</thresholds>
+        <thresholds_clr>33</thresholds_clr>
+        <action>
+            <cpu>0</cpu>
+            <cpu_a15>1421000</cpu_a15>
+            <gpu>400000000</gpu>
+            <uvoltage>5</uvoltage>
+            <ucurrent>0</ucurrent>
+            <camera_fps>0</camera_fps>
+            <lcd>11</lcd>
+        </action>
+    </item>
+    <item>
+        <thresholds>37</thresholds>
+        <thresholds_clr>35</thresholds_clr>
+        <action>
+            <cpu>0</cpu>
+            <cpu_a15>1421000</cpu_a15>
+            <gpu>400000000</gpu>
+            <uvoltage>5</uvoltage>
+            <ucurrent>1500</ucurrent>
+            <camera_fps>0</camera_fps>
+            <lcd>11</lcd>
+        </action>
+    </item>
+    <item>
+        <thresholds>39</thresholds>
+        <thresholds_clr>37</thresholds_clr>
+        <action>
+            <cpu>1402000</cpu>
+            <cpu_a15>903000</cpu_a15>
+            <gpu>400000000</gpu>
+            <uvoltage>5</uvoltage>
+            <ucurrent>1000</ucurrent>
+            <camera_fps>2</camera_fps>
+            <lcd>11</lcd>
+        </action>
+    </item>
+    <item>
+        <thresholds>45</thresholds>
+        <thresholds_clr>43</thresholds_clr>
+        <action>
+            <cpu>999000</cpu>
+            <cpu_a15>903000</cpu_a15>
+            <gpu>400000000</gpu>
+            <uvoltage>5</uvoltage>
+            <ucurrent>1000</ucurrent>
+            <camera_fps>2</camera_fps>
+            <lcd>12</lcd>
+            <thermal_safe_mode>0</thermal_safe_mode>
+        </action>
+    </item>
+    <item>
+        <thresholds>54</thresholds>
+        <thresholds_clr>51</thresholds_clr>
+        <action>
+            <cpu>533000</cpu>
+            <cpu_a15>903000</cpu_a15>
+            <gpu>400000000</gpu>
+            <uvoltage>5</uvoltage>
+            <ucurrent>900</ucurrent>
+            <camera_fps>2</camera_fps>
+            <lcd>16</lcd>
+            <thermal_safe_mode>1</thermal_safe_mode>
+        </action>
+    </item>
+    <item>
+        <thresholds>75</thresholds>
+        <thresholds_clr>73</thresholds_clr>
+        <action>
+            <shutdown>10000</shutdown>
+        </action>
+    </item>
+</sensor_temp>
+<sensor_temp name="cpu" type="0" enable="true" min_temp="0" step="5">
+     <item>
+        <thresholds>75</thresholds>
+        <thresholds_clr>73</thresholds_clr>
+        <action>
+            <shutdown>10000</shutdown>
+        </action>
+    </item>
+</sensor_temp>
+<sensor_temp name="ucurrent" type="2" enable="true" min_temp="0" step="5">
+    <item>
+        <thresholds>85</thresholds>
+        <thresholds_clr>83</thresholds_clr>
+        <action>
+            <shutdown>10000</shutdown>
+        </action>
+    </item>
+</sensor_temp>
+<sensor_temp name="pa" type="1" enable="true" min_temp="0" step="5">
+    <item>
+        <thresholds>75</thresholds>
+        <thresholds_clr>73</thresholds_clr>
+        <action>
+            <shutdown>10000</shutdown>
+        </action>
+    </item>
+</sensor_temp>
+</scene>
+<scene name="video" id="10009">
+<sensor_temp name="shell_temp" type="22" enable="true" min_temp="0" step="5" to_celsius="1000">
+</sensor_temp>
+<sensor_temp name="battery" type="9" enable="true" min_temp="-20" step="5" to_celsius="1000">
+    <item>
+        <thresholds>36</thresholds>
+        <thresholds_clr>34</thresholds_clr>
+        <action>
+            <cpu>0</cpu>
+            <cpu_a15>1421000</cpu_a15>
+            <gpu>400000000</gpu>
+            <uvoltage>5</uvoltage>
+            <ucurrent>1500</ucurrent>
+            <camera_fps>0</camera_fps>
+            <lcd>11</lcd>
+        </action>
+    </item>
+    <item>
+        <thresholds>38</thresholds>
+        <thresholds_clr>36</thresholds_clr>
+        <action>
+            <cpu>1402000</cpu>
+            <cpu_a15>903000</cpu_a15>
+            <gpu>400000000</gpu>
+            <uvoltage>5</uvoltage>
+            <ucurrent>1000</ucurrent>
+            <camera_fps>1</camera_fps>
+            <lcd>11</lcd>
+        </action>
+    </item>
+    <item>
+        <thresholds>45</thresholds>
+        <thresholds_clr>43</thresholds_clr>
+        <action>
+            <cpu>999000</cpu>
+            <cpu_a15>903000</cpu_a15>
+            <gpu>400000000</gpu>
+            <uvoltage>5</uvoltage>
+            <ucurrent>1000</ucurrent>
+            <camera_fps>1</camera_fps>
+            <lcd>12</lcd>
+            <thermal_safe_mode>0</thermal_safe_mode>
+        </action>
+    </item>
+    <item>
+        <thresholds>54</thresholds>
+        <thresholds_clr>51</thresholds_clr>
+        <action>
+            <cpu>533000</cpu>
+            <cpu_a15>903000</cpu_a15>
+            <gpu>400000000</gpu>
+            <uvoltage>5</uvoltage>
+            <ucurrent>900</ucurrent>
+            <camera_fps>1</camera_fps>
+            <lcd>16</lcd>
+            <thermal_safe_mode>1</thermal_safe_mode>
+        </action>
+    </item>
+    <item>
+        <thresholds>75</thresholds>
+        <thresholds_clr>73</thresholds_clr>
+        <action>
+            <shutdown>10000</shutdown>
+        </action>
+    </item>
+</sensor_temp>
+<sensor_temp name="cpu" type="0" enable="true" min_temp="0" step="5">
+     <item>
+        <thresholds>75</thresholds>
+        <thresholds_clr>73</thresholds_clr>
+        <action>
+            <shutdown>10000</shutdown>
+        </action>
+    </item>
+</sensor_temp>
+<sensor_temp name="ucurrent" type="2" enable="true" min_temp="0" step="5">
+    <item>
+        <thresholds>85</thresholds>
+        <thresholds_clr>83</thresholds_clr>
+        <action>
+            <shutdown>10000</shutdown>
+        </action>
+    </item>
+</sensor_temp>
+<sensor_temp name="pa" type="1" enable="true" min_temp="0" step="5">
+    <item>
+        <thresholds>75</thresholds>
+        <thresholds_clr>73</thresholds_clr>
+        <action>
+            <shutdown>10000</shutdown>
+        </action>
+    </item>
+</sensor_temp>
+</scene>
+<scene name="camera" id="10007">
+<sensor_temp name="shell_temp" type="22" enable="true" min_temp="0" step="5" to_celsius="1000">
+</sensor_temp>
+<sensor_temp name="cpu" type="0" enable="true" min_temp="0" step="5">
+     <item>
+        <thresholds>75</thresholds>
+        <thresholds_clr>73</thresholds_clr>
+        <action>
+            <shutdown>10000</shutdown>
+        </action>
+    </item>
+</sensor_temp>
+<sensor_temp name="ucurrent" type="2" enable="true" min_temp="0" step="5">
+    <item>
+        <thresholds>85</thresholds>
+        <thresholds_clr>83</thresholds_clr>
+        <action>
+            <shutdown>10000</shutdown>
+        </action>
+    </item>
+</sensor_temp>
+<sensor_temp name="pa" type="1" enable="true" min_temp="0" step="5">
+    <item>
+        <thresholds>75</thresholds>
+        <thresholds_clr>73</thresholds_clr>
+        <action>
+            <shutdown>10000</shutdown>
+        </action>
+    </item>
+</sensor_temp>
+<sensor_temp name="flash" type="3" enable="true" min_temp="0" step="20">
+    <item>
+        <thresholds>50</thresholds>
+        <thresholds_clr>48</thresholds_clr>
+        <action>
+            <flash>1</flash>
+        </action>
+    </item>
+</sensor_temp>
+<sensor_temp name="battery" type="9" enable="true" min_temp="-20" step="5" to_celsius="1000">
+    <item>
+        <thresholds>-6</thresholds>
+        <thresholds_clr>-5</thresholds_clr>                    <!--  -100C =< T < -5C  -->
+        <action battery_level_tri="29" battery_level_clr="30"> <!-- 0% =< A < 30%  -->
+            <cpu>1402000</cpu>
+            <cpu_a15>903000</cpu_a15>
+            <gpu>400000000</gpu>
+            <boost>4</boost>
+            <camera_fps>4</camera_fps>
+        </action>
+        <action battery_level_tri="100" battery_level_clr="101"> <!-- 0% =< A < 100%  -->
+            <cpu>1402000</cpu>
+            <cpu_a15>903000</cpu_a15>
+            <gpu>400000000</gpu>
+            <boost>4</boost>
+            <camera_fps>3</camera_fps>
+        </action>
+    </item>
+    <item>
+        <thresholds>-1</thresholds>
+        <thresholds_clr>0</thresholds_clr>                     <!--   -5C =< T < 0C  -->
+        <action battery_level_tri="49" battery_level_clr="50">     <!--  0% =< A < 50%  -->
+            <cpu>1402000</cpu>
+            <cpu_a15>1421000</cpu_a15>
+            <gpu>400000000</gpu>
+            <boost>4</boost>
+            <camera_fps>3</camera_fps>
+        </action>
+        <action battery_level_tri="100" battery_level_clr="101">   <!-- 50% =< A < 100%  -->
+        </action>
+    </item>
+    <item>
+        <thresholds>2</thresholds>
+        <thresholds_clr>3</thresholds_clr>                     <!--    0C =< T < 5C  -->
+        <action battery_level_tri="19" battery_level_clr="20">  <!--   0% =< A < 20%  -->
+            <cpu>1402000</cpu>
+            <cpu_a15>1421000</cpu_a15>
+            <gpu>400000000</gpu>
+            <boost>4</boost>
+            <camera_fps>3</camera_fps>
+        </action>
+        <action battery_level_tri="100" battery_level_clr="101">   <!-- 20% =< A < 100%  -->
+        </action>
+    </item>
+    <item>
+        <thresholds>5</thresholds>
+        <thresholds_clr>7</thresholds_clr>
+        <action battery_level_tri="14" battery_level_clr="15">  <!--   0% =< A < 15%  -->
+            <cpu>1402000</cpu>
+            <cpu_a15>2112000</cpu_a15>
+            <gpu>400000000</gpu>
+            <boost>4</boost>
+            <camera_fps>0</camera_fps>
+        </action>
+        <action battery_level_tri="100" battery_level_clr="101">   <!-- 15% =< A < 100%  -->
+            <cpu>0</cpu>
+            <cpu_a15>0</cpu_a15>
+            <gpu>0</gpu>
+            <boost>0</boost>
+            <camera_fps>0</camera_fps>
+        </action>
+    </item>
+	    <item>
+        <thresholds>33</thresholds>
+        <thresholds_clr>31</thresholds_clr>
+        <action>
+            <ipa_switch>0</ipa_switch>
+            <ipa_temp>0</ipa_temp>
+            <ipa_power>0</ipa_power>
+            <ucurrent>470</ucurrent> 
+            <camera_fps>0</camera_fps>
+            <lcd>11</lcd>
+        </action>
+    </item>
+    <item>
+        <thresholds>36</thresholds>
+        <thresholds_clr>34</thresholds_clr>
+        <action>
+            <ipa_switch>0</ipa_switch>
+            <ipa_temp>0</ipa_temp>
+            <ipa_power>0</ipa_power>
+            <ucurrent>470</ucurrent>
+            <camera_fps>2</camera_fps>
+            <lcd>12</lcd>
+        </action>
+    </item>
+    <item>
+        <thresholds>45</thresholds>
+        <thresholds_clr>43</thresholds_clr>
+        <action>
+            <ipa_switch>0</ipa_switch>
+            <ipa_temp>0</ipa_temp>
+            <ipa_power>1000</ipa_power>
+            <ucurrent>470</ucurrent>
+             <camera_fps>2</camera_fps>
+            <lcd>13</lcd>
+            <thermal_safe_mode>0</thermal_safe_mode>
+        </action>
+    </item>
+    <item>
+        <thresholds>54</thresholds>
+        <thresholds_clr>51</thresholds_clr>
+        <action>
+            <ipa_switch>0</ipa_switch>
+            <ipa_temp>0</ipa_temp>
+            <ipa_power>1000</ipa_power>
+            <ucurrent>470</ucurrent>
+            <camera_fps>2</camera_fps>
+            <lcd>16</lcd>
+            <thermal_safe_mode>1</thermal_safe_mode>
+        </action>
+    </item>
+</sensor_temp>
+</scene>
+<scene name="screenoff" id="20004">
+<sensor_temp name="shell_temp" type="22" enable="true" min_temp="0" step="5" to_celsius="1000">
+    <item>
+        <thresholds>33</thresholds>
+        <thresholds_clr>30</thresholds_clr>
+        <action>
+            <cpu>0</cpu>
+            <cpu_a15>1421000</cpu_a15>
+            <gpu>533000000</gpu>
+            <ucurrent>0</ucurrent>
+        </action>
+    </item>
+    <item>
+        <thresholds>36</thresholds>
+        <thresholds_clr>33</thresholds_clr>
+        <action>
+            <cpu>1402000</cpu>
+            <cpu_a15>903000</cpu_a15>
+            <gpu>400000000</gpu>
+            <ucurrent>1200</ucurrent>
+        </action>
+    </item>
+ 	 <item>
+        <thresholds>40</thresholds>
+        <thresholds_clr>36</thresholds_clr>
+        <action>
+            <cpu>999000</cpu>
+            <cpu_a15>903000</cpu_a15>
+            <gpu>400000000</gpu>
+            <ucurrent>470</ucurrent>
+        </action>
+    </item>
+</sensor_temp>
+<sensor_temp name="cpu" type="0" enable="true" min_temp="0" step="5">
+    <item>
+        <thresholds>75</thresholds>
+        <thresholds_clr>73</thresholds_clr>
+        <action>
+            <shutdown>10000</shutdown>
+        </action>
+    </item>
+</sensor_temp>
+<sensor_temp name="ucurrent" type="2" enable="true" min_temp="0" step="5">
+    <item>
+        <thresholds>75</thresholds>
+        <thresholds_clr>73</thresholds_clr>
+        <action>
+            <shutdown>10000</shutdown>
+        </action>
+    </item>
+</sensor_temp>
+<sensor_temp name="pa" type="1" enable="true" min_temp="0" step="5">
+   <item>
+        <thresholds>40</thresholds>
+        <thresholds_clr>36</thresholds_clr>
+        <action>
+            <ucurrent>900</ucurrent>
+            <bcurrent>0</bcurrent>
+        </action>
+    </item>
+    <item>
+        <thresholds>42</thresholds>
+        <thresholds_clr>40</thresholds_clr>
+        <action>
+            <ucurrent>470</ucurrent>
+            <bcurrent>0</bcurrent>
+        </action>
+    </item>
+    <item>
+        <thresholds>75</thresholds>
+        <thresholds_clr>73</thresholds_clr>
+        <action>
+            <shutdown>10000</shutdown>
+        </action>
+    </item>
+</sensor_temp>
+<sensor_temp name="battery" type="9" enable="true" min_temp="-20" step="5" to_celsius="1000">
+    <item>
+        <thresholds>45</thresholds>
+        <thresholds_clr>43</thresholds_clr>
+        <action>
+            <thermal_safe_mode>0</thermal_safe_mode>
+        </action>
+    </item>
+</sensor_temp>
+</scene>
+<scene name="3dgame" id="10002">
+<sensor_temp name="shell_temp" type="22" enable="true" min_temp="0" step="5" to_celsius="1000">
+</sensor_temp>
+<sensor_temp name="battery" type="9" enable="true" min_temp="-20" step="5" to_celsius="1000">
+    <item>
+        <thresholds>35</thresholds>
+        <thresholds_clr>33</thresholds_clr>
+        <action>
+            <app_action>1</app_action>
+            <uvoltage>0</uvoltage>
+        </action>
+    </item>
+    <item>
+        <thresholds>38</thresholds>
+        <thresholds_clr>36</thresholds_clr>
+        <action>
+            <cpu>0</cpu>
+            <cpu_a15>1421000</cpu_a15>
+            <gpu>400000000</gpu>
+            <uvoltage>5</uvoltage>
+            <ucurrent>900</ucurrent>
+            <camera_fps>2</camera_fps>
+            <lcd>11</lcd>
+            <app_action>2</app_action>
+        </action>
+    </item>
+    <item>
+        <thresholds>40</thresholds>
+        <thresholds_clr>38</thresholds_clr>
+        <action>
+            <cpu>0</cpu>
+            <cpu_a15>903000</cpu_a15>
+            <gpu>400000000</gpu>
+            <uvoltage>5</uvoltage>
+            <ucurrent>900</ucurrent>
+            <camera_fps>2</camera_fps>
+            <lcd>11</lcd>
+            <app_action>3</app_action>
+        </action>
+    </item>
+    <item>
+        <thresholds>45</thresholds>
+        <thresholds_clr>43</thresholds_clr>
+        <action>
+            <cpu>999000</cpu>
+            <cpu_a15>903000</cpu_a15>
+            <gpu>400000000</gpu>
+            <uvoltage>5</uvoltage>
+            <ucurrent>900</ucurrent>
+            <camera_fps>2</camera_fps>
+            <lcd>12</lcd>
+            <thermal_safe_mode>0</thermal_safe_mode>
+        </action>
+    </item>
+    <item>
+        <thresholds>54</thresholds>
+        <thresholds_clr>51</thresholds_clr>
+        <action>
+            <cpu>533000</cpu>
+            <cpu_a15>903000</cpu_a15>
+            <gpu>400000000</gpu>
+            <uvoltage>5</uvoltage>
+            <ucurrent>100</ucurrent>
+             <camera_fps>2</camera_fps>
+            <lcd>16</lcd>
+            <thermal_safe_mode>1</thermal_safe_mode>
+        </action>
+    </item>
+    <item>
+        <thresholds>75</thresholds>
+        <thresholds_clr>73</thresholds_clr>
+        <action>
+            <shutdown>10000</shutdown>
+        </action>
+    </item>
+</sensor_temp>
+<sensor_temp name="cpu" type="0" enable="true" min_temp="0" step="5">
+    <item>
+        <thresholds>75</thresholds>
+        <thresholds_clr>73</thresholds_clr>
+        <action>
+            <shutdown>10000</shutdown>
+        </action>
+    </item>
+</sensor_temp>
+<sensor_temp name="ucurrent" type="2" enable="true" min_temp="0" step="5">
+    <item>
+        <thresholds>85</thresholds>
+        <thresholds_clr>83</thresholds_clr>
+        <action>
+            <shutdown>10000</shutdown>
+        </action>
+    </item>
+</sensor_temp>
+<sensor_temp name="pa" type="1" enable="true" min_temp="0" step="5">
+    <item>
+        <thresholds>75</thresholds>
+        <thresholds_clr>73</thresholds_clr>
+        <action>
+            <shutdown>10000</shutdown>
+        </action>
+    </item>
+</sensor_temp>
+</scene>
+<scene name="2dgame" id="10011">
+<sensor_temp name="shell_temp" type="22" enable="true" min_temp="0" step="5" to_celsius="1000">
+</sensor_temp>
+<sensor_temp name="battery" type="9" enable="true" min_temp="-20" step="5" to_celsius="1000">
+    <item>
+        <thresholds>35</thresholds>
+        <thresholds_clr>33</thresholds_clr>
+        <action>
+            <app_action>1</app_action>
+            <uvoltage>0</uvoltage>
+        </action>
+    </item>
+    <item>
+        <thresholds>38</thresholds>
+        <thresholds_clr>36</thresholds_clr>
+        <action>
+            <cpu>0</cpu>
+            <cpu_a15>1421000</cpu_a15>
+            <gpu>400000000</gpu>
+            <uvoltage>5</uvoltage>
+            <ucurrent>900</ucurrent>
+            <camera_fps>2</camera_fps>
+            <lcd>11</lcd>
+            <app_action>2</app_action>
+        </action>
+    </item>
+    <item>
+        <thresholds>40</thresholds>
+        <thresholds_clr>38</thresholds_clr>
+        <action>
+            <cpu>0</cpu>
+            <cpu_a15>903000</cpu_a15>
+            <gpu>400000000</gpu>
+            <uvoltage>5</uvoltage>
+            <ucurrent>900</ucurrent>
+            <camera_fps>2</camera_fps>
+            <lcd>11</lcd>
+            <app_action>3</app_action>
+        </action>
+    </item>
+    <item>
+        <thresholds>45</thresholds>
+        <thresholds_clr>43</thresholds_clr>
+        <action>
+            <cpu>999000</cpu>
+            <cpu_a15>903000</cpu_a15>
+            <gpu>400000000</gpu>
+            <uvoltage>5</uvoltage>
+            <ucurrent>900</ucurrent>
+            <camera_fps>2</camera_fps>
+            <lcd>12</lcd>
+            <thermal_safe_mode>0</thermal_safe_mode>
+        </action>
+    </item>
+    <item>
+        <thresholds>54</thresholds>
+        <thresholds_clr>51</thresholds_clr>
+        <action>
+            <cpu>533000</cpu>
+            <cpu_a15>903000</cpu_a15>
+            <gpu>400000000</gpu>
+            <uvoltage>5</uvoltage>
+            <ucurrent>100</ucurrent>
+            <camera_fps>2</camera_fps>
+            <lcd>16</lcd>
+            <thermal_safe_mode>1</thermal_safe_mode>
+        </action>
+    </item>
+    <item>
+        <thresholds>75</thresholds>
+        <thresholds_clr>73</thresholds_clr>
+        <action>
+            <shutdown>10000</shutdown>
+        </action>
+    </item>
+</sensor_temp>
+<sensor_temp name="cpu" type="0" enable="true" min_temp="0" step="5">
+    <item>
+        <thresholds>75</thresholds>
+        <thresholds_clr>73</thresholds_clr>
+        <action>
+            <shutdown>10000</shutdown>
+        </action>
+    </item>
+</sensor_temp>
+<sensor_temp name="ucurrent" type="2" enable="true" min_temp="0" step="5">
+    <item>
+        <thresholds>85</thresholds>
+        <thresholds_clr>83</thresholds_clr>
+        <action>
+            <shutdown>10000</shutdown>
+        </action>
+    </item>
+</sensor_temp>
+<sensor_temp name="pa" type="1" enable="true" min_temp="0" step="5">
+    <item>
+        <thresholds>75</thresholds>
+        <thresholds_clr>73</thresholds_clr>
+        <action>
+            <shutdown>10000</shutdown>
+        </action>
+    </item>
+</sensor_temp>
+</scene>
+<scene name="com.supercell.clashroyale*|com.tencent.tmgp.dragonnest*|com.youkia.xyj3.cmge*|com.wepie.snake*|com.miHoYo.enterprise.NGHSoD*|com.dream2.ro*|com.ourpalm.tk2*|com.game.nhyrz.android*|com.ty.fishing*|com.cmge.twt*|com.bin.yjckbflx*|com.mztgame.j3*|com.happyelements.AndroidAnimal*|com.plarium.vikings3*|com.supercell.clashofclans*|com.supercell.boombeach*|com.netease.l10*|com.netease.my*|com.cyou.mrd.xjqx5*|com.qqgame.hlddz*|com.blizzard.wtcg.hearthstone*|com.netease.gmdl*" id="100010">
+<sensor_temp name="shell_temp" type="22" enable="true" min_temp="0" step="5" to_celsius="1000">
+</sensor_temp>
+<sensor_temp name="battery" type="9" enable="true" min_temp="-20" step="5" to_celsius="1000">
+    <item>
+        <thresholds>35</thresholds>
+        <thresholds_clr>33</thresholds_clr>
+        <action>
+            <app_action>1</app_action>
+            <uvoltage>0</uvoltage>
+        </action>
+    </item>
+    <item>
+        <thresholds>38</thresholds>
+        <thresholds_clr>36</thresholds_clr>
+        <action>
+            <cpu>0</cpu>
+            <cpu_a15>1421000</cpu_a15>
+            <gpu>400000000</gpu>
+            <uvoltage>5</uvoltage>
+            <ucurrent>900</ucurrent>
+            <camera_fps>2</camera_fps>
+            <lcd>11</lcd>
+            <app_action>2</app_action>
+        </action>
+    </item>
+    <item>
+        <thresholds>40</thresholds>
+        <thresholds_clr>38</thresholds_clr>
+        <action>
+            <cpu>0</cpu>
+            <cpu_a15>903000</cpu_a15>
+            <gpu>400000000</gpu>
+            <uvoltage>5</uvoltage>
+            <ucurrent>900</ucurrent>
+            <camera_fps>2</camera_fps>
+            <lcd>11</lcd>
+            <app_action>3</app_action>
+        </action>
+    </item>
+    <item>
+        <thresholds>45</thresholds>
+        <thresholds_clr>43</thresholds_clr>
+        <action>
+            <cpu>999000</cpu>
+            <cpu_a15>903000</cpu_a15>
+            <gpu>400000000</gpu>
+            <uvoltage>5</uvoltage>
+            <ucurrent>900</ucurrent>
+             <camera_fps>2</camera_fps>
+            <lcd>12</lcd>
+            <thermal_safe_mode>0</thermal_safe_mode>
+        </action>
+    </item>
+    <item>
+        <thresholds>54</thresholds>
+        <thresholds_clr>51</thresholds_clr>
+        <action>
+            <cpu>533000</cpu>
+            <cpu_a15>903000</cpu_a15>
+            <gpu>400000000</gpu>
+            <uvoltage>5</uvoltage>
+            <ucurrent>100</ucurrent>
+            <camera_fps>2</camera_fps>
+            <lcd>16</lcd>
+            <thermal_safe_mode>1</thermal_safe_mode>
+        </action>
+    </item>
+    <item>
+        <thresholds>75</thresholds>
+        <thresholds_clr>73</thresholds_clr>
+        <action>
+            <shutdown>10000</shutdown>
+        </action>
+    </item>
+</sensor_temp>
+<sensor_temp name="cpu" type="0" enable="true" min_temp="0" step="5">
+     <item>
+        <thresholds>75</thresholds>
+        <thresholds_clr>73</thresholds_clr>
+        <action>
+            <shutdown>10000</shutdown>
+        </action>
+    </item>
+</sensor_temp>
+<sensor_temp name="ucurrent" type="2" enable="true" min_temp="0" step="5">
+    <item>
+        <thresholds>85</thresholds>
+        <thresholds_clr>83</thresholds_clr>
+        <action>
+            <shutdown>10000</shutdown>
+        </action>
+    </item>
+</sensor_temp>
+<sensor_temp name="pa" type="1" enable="true" min_temp="0" step="5">
+    <item>
+        <thresholds>75</thresholds>
+        <thresholds_clr>73</thresholds_clr>
+        <action>
+            <shutdown>10000</shutdown>
+        </action>
+    </item>
+</sensor_temp>
+</scene>
+<scene name="com.autonavi.minimap*|com.baidu.BaiduMap*|com.sdu.didi.gsui*|com.sdu.didi.gui*|com.sdu.didi.psnger*|com.google.android.maps*" id="100030">
+<sensor_temp name="shell_temp" type="22" enable="true" min_temp="0" step="5" to_celsius="1000">
+</sensor_temp>
+<sensor_temp name="battery" type="9" enable="true" min_temp="-20" step="5" to_celsius="1000">
+    <item>
+        <thresholds>38</thresholds>
+        <thresholds_clr>36</thresholds_clr>
+        <action>
+            <cpu>1402000</cpu>
+            <cpu_a15>903000</cpu_a15>
+            <gpu>400000000</gpu>
+            <ucurrent>470</ucurrent>
+             <camera_fps>2</camera_fps>
+            <lcd>12</lcd>
+        </action>
+    </item>
+    <item>
+        <thresholds>40</thresholds>
+        <thresholds_clr>38</thresholds_clr>
+        <action>
+            <cpu>999000</cpu>
+            <cpu_a15>903000</cpu_a15>
+            <gpu>400000000</gpu>
+            <ucurrent>470</ucurrent>
+            <camera_fps>2</camera_fps>
+            <lcd>12</lcd>
+        </action>
+    </item>
+    <item>
+        <thresholds>45</thresholds>
+        <thresholds_clr>43</thresholds_clr>
+        <action>
+            <cpu>999000</cpu>
+            <cpu_a15>903000</cpu_a15>
+            <gpu>400000000</gpu>
+            <ucurrent>470</ucurrent>
+            <camera_fps>2</camera_fps>
+            <lcd>12</lcd>
+            <thermal_safe_mode>0</thermal_safe_mode>
+        </action>
+    </item>
+    <item>
+        <thresholds>54</thresholds>
+        <thresholds_clr>51</thresholds_clr>
+        <action>
+            <cpu>533000</cpu>
+            <cpu_a15>903000</cpu_a15>
+            <gpu>400000000</gpu>
+            <ucurrent>470</ucurrent>
+            <camera_fps>2</camera_fps>
+            <lcd>16</lcd>
+            <thermal_safe_mode>1</thermal_safe_mode>
+        </action>
+    </item>
+    <item>
+        <thresholds>75</thresholds>
+        <thresholds_clr>73</thresholds_clr>
+        <action>
+            <shutdown>10000</shutdown>
+        </action>
+    </item>
+</sensor_temp>
+<sensor_temp name="cpu" type="0" enable="true" min_temp="0" step="5">
+     <item>
+        <thresholds>75</thresholds>
+        <thresholds_clr>73</thresholds_clr>
+        <action>
+            <shutdown>10000</shutdown>
+        </action>
+    </item>
+</sensor_temp>
+<sensor_temp name="ucurrent" type="2" enable="true" min_temp="0" step="5">
+    <item>
+        <thresholds>85</thresholds>
+        <thresholds_clr>83</thresholds_clr>
+        <action>
+            <shutdown>10000</shutdown>
+        </action>
+    </item>
+</sensor_temp>
+<sensor_temp name="pa" type="1" enable="true" min_temp="0" step="5">
+    <item>
+        <thresholds>75</thresholds>
+        <thresholds_clr>73</thresholds_clr>
+        <action>
+            <shutdown>10000</shutdown>
+        </action>
+    </item>
+</sensor_temp>
+</scene>
+<scene name="com.tencent.mobileqq*|com.tencent.mm*|com.sina.weibo*" id="100040">
+<sensor_temp name="shell_temp" type="22" enable="true" min_temp="0" step="5" to_celsius="1000">
+</sensor_temp>
+<sensor_temp name="battery" type="9" enable="true" min_temp="-20" step="5" to_celsius="1000">
+    <item>
+        <thresholds>38</thresholds>
+        <thresholds_clr>36</thresholds_clr>
+        <action>
+            <cpu>0</cpu>
+            <cpu_a15>1421000</cpu_a15>
+            <gpu>400000000</gpu>
+            <ucurrent>470</ucurrent>
+            <camera_fps>0</camera_fps>
+            <lcd>11</lcd>
+        </action>
+    </item>
+    <item>
+        <thresholds>40</thresholds>
+        <thresholds_clr>38</thresholds_clr>
+        <action>
+            <cpu>1402000</cpu>
+            <cpu_a15>903000</cpu_a15>
+            <gpu>400000000</gpu>
+            <ucurrent>470</ucurrent>
+            <camera_fps>2</camera_fps>
+            <lcd>11</lcd>
+        </action>
+    </item>
+    <item>
+        <thresholds>45</thresholds>
+        <thresholds_clr>43</thresholds_clr>
+        <action>
+            <cpu>999000</cpu>
+            <cpu_a15>903000</cpu_a15>
+            <gpu>400000000</gpu>
+            <ucurrent>470</ucurrent>
+            <camera_fps>2</camera_fps>
+            <lcd>12</lcd>
+            <thermal_safe_mode>0</thermal_safe_mode>
+        </action>
+    </item>
+    <item>
+        <thresholds>54</thresholds>
+        <thresholds_clr>51</thresholds_clr>
+        <action>
+            <cpu>533000</cpu>
+            <cpu_a15>903000</cpu_a15>
+            <gpu>400000000</gpu>
+            <ucurrent>470</ucurrent>
+            <camera_fps>2</camera_fps>
+            <lcd>16</lcd>
+            <thermal_safe_mode>1</thermal_safe_mode>
+        </action>
+    </item>
+    <item>
+        <thresholds>75</thresholds>
+        <thresholds_clr>73</thresholds_clr>
+        <action>
+            <shutdown>10000</shutdown>
+        </action>
+    </item>
+</sensor_temp>
+<sensor_temp name="cpu" type="0" enable="true" min_temp="0" step="5">
+    <item>
+        <thresholds>75</thresholds>
+        <thresholds_clr>73</thresholds_clr>
+        <action>
+            <shutdown>10000</shutdown>
+        </action>
+    </item>
+</sensor_temp>
+<sensor_temp name="ucurrent" type="2" enable="true" min_temp="0" step="5">
+    <item>
+        <thresholds>85</thresholds>
+        <thresholds_clr>83</thresholds_clr>
+        <action>
+            <shutdown>10000</shutdown>
+        </action>
+    </item>
+</sensor_temp>
+<sensor_temp name="pa" type="1" enable="true" min_temp="0" step="5">
+    <item>
+        <thresholds>75</thresholds>
+        <thresholds_clr>73</thresholds_clr>
+        <action>
+            <shutdown>10000</shutdown>
+        </action>
+    </item>
+</sensor_temp>
+</scene>
+<scene name="com.toprand.honor_stf*" id="100050">
+<sensor_temp name="battery" type="9" enable="true" min_temp="-20" step="5" to_celsius="1000">
+    <item>
+        <thresholds>32</thresholds>
+        <thresholds_clr>30</thresholds_clr>
+        <action>
+            <cpu>533000</cpu>
+            <cpu_a15>903000</cpu_a15>
+            <gpu>400000000</gpu>
+            <ucurrent>470</ucurrent>
+            <thermal_safe_mode>0</thermal_safe_mode>
+        </action>
+    </item>
+    <item>
+        <thresholds>75</thresholds>
+        <thresholds_clr>73</thresholds_clr>
+        <action>
+            <shutdown>10000</shutdown>
+        </action>
+    </item>
+</sensor_temp>
+<sensor_temp name="cpu" type="0" enable="true" min_temp="0" step="5">
+    <item>
+        <thresholds>75</thresholds>
+        <thresholds_clr>73</thresholds_clr>
+        <action>
+            <shutdown>10000</shutdown>
+        </action>
+    </item>
+</sensor_temp>
+<sensor_temp name="ucurrent" type="2" enable="true" min_temp="0" step="5">
+    <item>
+        <thresholds>85</thresholds>
+        <thresholds_clr>83</thresholds_clr>
+        <action>
+            <shutdown>10000</shutdown>
+        </action>
+    </item>
+</sensor_temp>
+<sensor_temp name="pa" type="1" enable="true" min_temp="0" step="5">
+    <item>
+        <thresholds>75</thresholds>
+        <thresholds_clr>73</thresholds_clr>
+        <action>
+            <shutdown>10000</shutdown>
+        </action>
+    </item>
+</sensor_temp>
+</scene>
+<scene name="com.android.cm3|com.antutu.abenchmark|com.antutu.abenchmark.gl2|com.antutu.abenchmark.gl3|com.antutu.videobench|com.aurorasoftworks.quadrant.ui.advanced|com.aurorasoftworks.quadrant.ui.professional|com.drolez.nbench|com.eembc.andebench|com.eembc.coremark|com.ellismarkov.gpubench|com.futuremark.pcmark.android.benchmark|com.glbenchmark.glbenchmark21|com.glbenchmark.glbenchmark27|com.greenecomputing.linpack|com.ludashi.benchmark|com.passmark.pt_mobile|com.primatelabs.geekbench|com.primatelabs.geekbench3|com.quicinc.vellamo|com.rarlab.rarvtg|com.redlicense.benchmark.sqlite|com.rightware.basemarkgui|com.rightware.basemarkosii|com.rightware.tdmm2v10jnifree|com.smartbench.twelve|com.tactel.electopia|com.threed.jpct.bench|com.threed.jpct.benchxl|eu.chainfire.cfbench|gr.androiddev.benchmarkpi|org.broadley.membench|performance.test|se.nena.nenamark1|se.nena.nenamark2|softweg.hw.performance|org.zeroxlab.zeroxbenchmark|com.primatelabs.geekbench4.corporate|com.dhryzi|com.antutu.benchmark.full|net.kishonti.gfxbench.gl*|com.robotium.mark3d" id="100060">
+<sensor_temp name="shell_temp" type="22" enable="true" min_temp="0" step="5" to_celsius="1000">
+    <item>
+        <thresholds>37</thresholds>
+        <thresholds_clr>35</thresholds_clr>
+        <action>
+            <ipa_switch>0</ipa_switch>
+            <ipa_temp>0</ipa_temp>
+            <ipa_power>0</ipa_power>
+            <ucurrent>470</ucurrent>
+            <camera_fps>2</camera_fps>
+            <lcd>11</lcd>
+        </action>
+    </item>
+    <item>
+        <thresholds>40</thresholds>
+        <thresholds_clr>37</thresholds_clr>
+        <action>
+            <ipa_switch>0</ipa_switch>
+            <ipa_temp>0</ipa_temp>
+            <ipa_power>2500</ipa_power>
+            <ucurrent>470</ucurrent>
+            <camera_fps>2</camera_fps>
+            <lcd>11</lcd>
+            <app_action>2</app_action>
+        </action>
+    </item>
+    <item>
+        <thresholds>42</thresholds>
+        <thresholds_clr>40</thresholds_clr>
+        <action>
+            <ipa_switch>0</ipa_switch>
+            <ipa_temp>0</ipa_temp>
+            <ipa_power>1300</ipa_power>
+            <ucurrent>470</ucurrent>
+            <camera_fps>2</camera_fps>
+            <lcd>11</lcd>
+            <app_action>3</app_action>
+        </action>
+    </item>
+    <item>
+        <thresholds>53</thresholds>
+        <thresholds_clr>50</thresholds_clr>
+        <action>
+            <ipa_switch>0</ipa_switch>
+            <ipa_temp>0</ipa_temp>
+            <ipa_power>1000</ipa_power>
+            <ucurrent>470</ucurrent>
+            <camera_fps>2</camera_fps>
+            <lcd>16</lcd>
+        </action>
+    </item>
+</sensor_temp>
+<sensor_temp name="cpu" type="0" enable="true" min_temp="0" step="5">
+    <item>
+        <thresholds>75</thresholds>
+        <thresholds_clr>73</thresholds_clr>
+        <action>
+            <shutdown>10000</shutdown>
+        </action>
+    </item>
+</sensor_temp>
+<sensor_temp name="ucurrent" type="2" enable="true" min_temp="0" step="5">
+    <item>
+        <thresholds>75</thresholds>
+        <thresholds_clr>73</thresholds_clr>
+        <action>
+            <shutdown>10000</shutdown>
+        </action>
+    </item>
+</sensor_temp>
+<sensor_temp name="pa" type="1" enable="true" min_temp="0" step="5">
+    <item>
+        <thresholds>75</thresholds>
+        <thresholds_clr>73</thresholds_clr>
+        <action>
+            <shutdown>10000</shutdown>
+        </action>
+    </item>
+</sensor_temp>
+<sensor_temp name="battery" type="9" enable="true" min_temp="-20" step="5" to_celsius="1000">   
+    <item>
+        <thresholds>48</thresholds>
+        <thresholds_clr>45</thresholds_clr>
+        <action>
+            <thermal_safe_mode>0</thermal_safe_mode>
+        </action>
+    </item>
+    <item>
+        <thresholds>54</thresholds>
+        <thresholds_clr>51</thresholds_clr>
+        <action>
+            <thermal_safe_mode>1</thermal_safe_mode>
+        </action>
+    </item>
+    <item>
+        <thresholds>75</thresholds>
+        <thresholds_clr>73</thresholds_clr>
+        <action>
+            <shutdown>10000</shutdown>
+        </action>
+    </item>
+</sensor_temp>
+</scene>
+<comb_scene name="com.tencent.mobileqq|com.tencent.mm" id="10007" parent_id="0">
+<sensor_temp name="shell_temp" type="22" enable="true" min_temp="0" step="5" to_celsius="1000">
+</sensor_temp>
+<sensor_temp name="battery" type="9" enable="true" min_temp="-20" step="5" to_celsius="1000">
+    <item>
+        <thresholds>38</thresholds>
+        <thresholds_clr>36</thresholds_clr>
+        <action>
+            <cpu>0</cpu>
+            <cpu_a15>1421000</cpu_a15>
+            <gpu>400000000</gpu>
+            <ucurrent>470</ucurrent>
+            <camera_fps>0</camera_fps>
+            <lcd>11</lcd>
+        </action>
+    </item>
+    <item>
+        <thresholds>40</thresholds>
+        <thresholds_clr>38</thresholds_clr>
+        <action>
+            <cpu>1402000</cpu>
+            <cpu_a15>903000</cpu_a15>
+            <gpu>400000000</gpu>
+            <uvoltage>5</uvoltage>
+            <ucurrent>900</ucurrent>
+            <camera_fps>1</camera_fps>
+            <lcd>11</lcd>
+        </action>
+    </item>
+    <item>
+        <thresholds>45</thresholds>
+        <thresholds_clr>43</thresholds_clr>
+        <action>
+            <cpu>999000</cpu>
+            <cpu_a15>903000</cpu_a15>
+            <gpu>400000000</gpu>
+            <uvoltage>5</uvoltage>
+            <ucurrent>900</ucurrent>
+            <camera_fps>2</camera_fps>
+            <lcd>12</lcd>
+            <thermal_safe_mode>0</thermal_safe_mode>
+        </action>
+    </item>
+    <item>
+        <thresholds>54</thresholds>
+        <thresholds_clr>51</thresholds_clr>
+        <action>
+            <cpu>533000</cpu>
+            <cpu_a15>903000</cpu_a15>
+            <gpu>400000000</gpu>
+            <uvoltage>5</uvoltage>
+            <ucurrent>900</ucurrent>
+             <camera_fps>2</camera_fps>
+            <lcd>16</lcd>
+            <thermal_safe_mode>1</thermal_safe_mode>
+        </action>
+    </item>
+    <item>
+        <thresholds>75</thresholds>
+        <thresholds_clr>73</thresholds_clr>
+        <action>
+            <shutdown>10000</shutdown>
+        </action>
+    </item>
+</sensor_temp>
+<sensor_temp name="cpu" type="0" enable="true" min_temp="0" step="5">
+     <item>
+        <thresholds>75</thresholds>
+        <thresholds_clr>73</thresholds_clr>
+        <action>
+            <shutdown>10000</shutdown>
+        </action>
+    </item>
+</sensor_temp>
+<sensor_temp name="ucurrent" type="2" enable="true" min_temp="0" step="5">
+    <item>
+        <thresholds>85</thresholds>
+        <thresholds_clr>83</thresholds_clr>
+        <action>
+            <shutdown>10000</shutdown>
+        </action>
+    </item>
+</sensor_temp>
+<sensor_temp name="pa" type="1" enable="true" min_temp="0" step="5">
+    <item>
+        <thresholds>75</thresholds>
+        <thresholds_clr>73</thresholds_clr>
+        <action>
+            <shutdown>10000</shutdown>
+        </action>
+    </item>
+</sensor_temp>
+</comb_scene>
+<comb_scene name="com.tencent.mm|com.tencent.mobileqq" id="10009" parent_id="0">
+<sensor_temp name="shell_temp" type="22" enable="true" min_temp="0" step="5" to_celsius="1000">
+</sensor_temp>
+<sensor_temp name="battery" type="9" enable="true" min_temp="-20" step="5" to_celsius="1000">
+    <item>
+        <thresholds>38</thresholds>
+        <thresholds_clr>36</thresholds_clr>
+        <action>
+            <cpu>0</cpu>
+            <cpu_a15>1421000</cpu_a15>
+            <gpu>400000000</gpu>
+            <ucurrent>470</ucurrent>
+            <camera_fps>0</camera_fps>
+            <lcd>11</lcd>
+        </action>
+    </item>
+    <item>
+        <thresholds>40</thresholds>
+        <thresholds_clr>38</thresholds_clr>
+        <action>
+            <cpu>1402000</cpu>
+            <cpu_a15>903000</cpu_a15>
+            <gpu>400000000</gpu>
+            <uvoltage>5</uvoltage>
+            <ucurrent>900</ucurrent>
+            <camera_fps>1</camera_fps>
+            <lcd>11</lcd>
+        </action>
+    </item>
+    <item>
+        <thresholds>45</thresholds>
+        <thresholds_clr>43</thresholds_clr>
+        <action>
+            <cpu>999000</cpu>
+            <cpu_a15>903000</cpu_a15>
+            <gpu>400000000</gpu>
+            <uvoltage>5</uvoltage>
+            <ucurrent>900</ucurrent>
+            <camera_fps>2</camera_fps>
+            <lcd>12</lcd>
+            <thermal_safe_mode>0</thermal_safe_mode>
+        </action>
+    </item>
+    <item>
+        <thresholds>54</thresholds>
+        <thresholds_clr>51</thresholds_clr>
+        <action>
+            <cpu>533000</cpu>
+            <cpu_a15>903000</cpu_a15>
+            <gpu>400000000</gpu>
+            <uvoltage>5</uvoltage>
+            <ucurrent>900</ucurrent>
+             <camera_fps>2</camera_fps>
+            <lcd>16</lcd>
+            <thermal_safe_mode>1</thermal_safe_mode>
+        </action>
+    </item>
+    <item>
+        <thresholds>75</thresholds>
+        <thresholds_clr>73</thresholds_clr>
+        <action>
+            <shutdown>10000</shutdown>
+        </action>
+    </item>
+</sensor_temp>
+<sensor_temp name="cpu" type="0" enable="true" min_temp="0" step="5">
+     <item>
+        <thresholds>75</thresholds>
+        <thresholds_clr>73</thresholds_clr>
+        <action>
+            <shutdown>10000</shutdown>
+        </action>
+    </item>
+</sensor_temp>
+<sensor_temp name="ucurrent" type="2" enable="true" min_temp="0" step="5">
+    <item>
+        <thresholds>85</thresholds>
+        <thresholds_clr>83</thresholds_clr>
+        <action>
+            <shutdown>10000</shutdown>
+        </action>
+    </item>
+</sensor_temp>
+<sensor_temp name="pa" type="1" enable="true" min_temp="0" step="5">
+    <item>
+        <thresholds>75</thresholds>
+        <thresholds_clr>73</thresholds_clr>
+        <action>
+            <shutdown>10000</shutdown>
+        </action>
+    </item>
+</sensor_temp>
+</comb_scene>
+<comb_scene name="com.tencent.mm|com.tencent.mobileqq" id="10018" parent_id="0">
+<sensor_temp name="shell_temp" type="22" enable="true" min_temp="0" step="5" to_celsius="1000">
+</sensor_temp>
+<sensor_temp name="battery" type="9" enable="true" min_temp="-20" step="5" to_celsius="1000">
+    <item>
+        <thresholds>38</thresholds>
+        <thresholds_clr>36</thresholds_clr>
+        <action>
+            <cpu>0</cpu>
+            <cpu_a15>1421000</cpu_a15>
+            <gpu>400000000</gpu>
+            <ucurrent>470</ucurrent>
+            <camera_fps>0</camera_fps>
+            <lcd>11</lcd>
+        </action>
+    </item>
+    <item>
+        <thresholds>40</thresholds>
+        <thresholds_clr>38</thresholds_clr>
+        <action>
+            <cpu>1402000</cpu>
+            <cpu_a15>903000</cpu_a15>
+            <gpu>400000000</gpu>
+            <uvoltage>5</uvoltage>
+            <ucurrent>900</ucurrent>
+            <camera_fps>1</camera_fps>
+            <lcd>11</lcd>
+        </action>
+    </item>
+    <item>
+        <thresholds>45</thresholds>
+        <thresholds_clr>43</thresholds_clr>
+        <action>
+            <cpu>999000</cpu>
+            <cpu_a15>903000</cpu_a15>
+            <gpu>400000000</gpu>
+            <uvoltage>5</uvoltage>
+            <ucurrent>900</ucurrent>
+            <camera_fps>2</camera_fps>
+            <lcd>12</lcd>
+            <thermal_safe_mode>0</thermal_safe_mode>
+        </action>
+    </item>
+    <item>
+        <thresholds>54</thresholds>
+        <thresholds_clr>51</thresholds_clr>
+        <action>
+            <cpu>533000</cpu>
+            <cpu_a15>903000</cpu_a15>
+            <gpu>400000000</gpu>
+            <uvoltage>5</uvoltage>
+            <ucurrent>900</ucurrent>
+             <camera_fps>2</camera_fps>
+            <lcd>16</lcd>
+            <thermal_safe_mode>1</thermal_safe_mode>
+        </action>
+    </item>
+    <item>
+        <thresholds>75</thresholds>
+        <thresholds_clr>73</thresholds_clr>
+        <action>
+            <shutdown>10000</shutdown>
+        </action>
+    </item>
+</sensor_temp>
+<sensor_temp name="cpu" type="0" enable="true" min_temp="0" step="5">
+     <item>
+        <thresholds>75</thresholds>
+        <thresholds_clr>73</thresholds_clr>
+        <action>
+            <shutdown>10000</shutdown>
+        </action>
+    </item>
+</sensor_temp>
+<sensor_temp name="ucurrent" type="2" enable="true" min_temp="0" step="5">
+    <item>
+        <thresholds>85</thresholds>
+        <thresholds_clr>83</thresholds_clr>
+        <action>
+            <shutdown>10000</shutdown>
+        </action>
+    </item>
+</sensor_temp>
+<sensor_temp name="pa" type="1" enable="true" min_temp="0" step="5">
+    <item>
+        <thresholds>75</thresholds>
+        <thresholds_clr>73</thresholds_clr>
+        <action>
+            <shutdown>10000</shutdown>
+        </action>
+    </item>
+</sensor_temp>
+</comb_scene>
+<scene name="air.tv.douyu.android|com.meelive.ingkee|com.vst.live|com.huajiao|com.duowan.kiwi|com.panda.videoliveplatform|com.kascend.chushou" id="100000">
+<sensor_temp name="shell_temp" type="22" enable="true" min_temp="0" step="5" to_celsius="1000">
+</sensor_temp>
+<sensor_temp name="battery" type="9" enable="true" min_temp="-20" step="5" to_celsius="1000">
+    <item>
+        <thresholds>38</thresholds>
+        <thresholds_clr>36</thresholds_clr>
+        <action>
+            <cpu>0</cpu>
+            <cpu_a15>1421000</cpu_a15>
+            <gpu>400000000</gpu>
+            <ucurrent>470</ucurrent>
+            <camera_fps>0</camera_fps>
+            <lcd>11</lcd>
+        </action>
+    </item>
+    <item>
+        <thresholds>40</thresholds>
+        <thresholds_clr>38</thresholds_clr>
+        <action>
+            <cpu>1402000</cpu>
+            <cpu_a15>903000</cpu_a15>
+            <gpu>400000000</gpu>
+            <uvoltage>5</uvoltage>
+            <ucurrent>900</ucurrent>
+            <camera_fps>1</camera_fps>
+            <lcd>11</lcd>
+        </action>
+    </item>
+    <item>
+        <thresholds>45</thresholds>
+        <thresholds_clr>43</thresholds_clr>
+        <action>
+            <cpu>999000</cpu>
+            <cpu_a15>903000</cpu_a15>
+            <gpu>400000000</gpu>
+            <uvoltage>5</uvoltage>
+            <ucurrent>900</ucurrent>
+            <camera_fps>2</camera_fps>
+            <lcd>12</lcd>
+            <thermal_safe_mode>0</thermal_safe_mode>
+        </action>
+    </item>
+    <item>
+        <thresholds>54</thresholds>
+        <thresholds_clr>51</thresholds_clr>
+        <action>
+            <cpu>533000</cpu>
+            <cpu_a15>903000</cpu_a15>
+            <gpu>400000000</gpu>
+            <uvoltage>5</uvoltage>
+            <ucurrent>900</ucurrent>
+             <camera_fps>2</camera_fps>
+            <lcd>16</lcd>
+            <thermal_safe_mode>1</thermal_safe_mode>
+        </action>
+    </item>
+    <item>
+        <thresholds>75</thresholds>
+        <thresholds_clr>73</thresholds_clr>
+        <action>
+            <shutdown>10000</shutdown>
+        </action>
+    </item>
+</sensor_temp>
+<sensor_temp name="cpu" type="0" enable="true" min_temp="0" step="5">
+     <item>
+        <thresholds>75</thresholds>
+        <thresholds_clr>73</thresholds_clr>
+        <action>
+            <shutdown>10000</shutdown>
+        </action>
+    </item>
+</sensor_temp>
+<sensor_temp name="ucurrent" type="2" enable="true" min_temp="0" step="5">
+    <item>
+        <thresholds>85</thresholds>
+        <thresholds_clr>83</thresholds_clr>
+        <action>
+            <shutdown>10000</shutdown>
+        </action>
+    </item>
+</sensor_temp>
+<sensor_temp name="pa" type="1" enable="true" min_temp="0" step="5">
+    <item>
+        <thresholds>75</thresholds>
+        <thresholds_clr>73</thresholds_clr>
+        <action>
+            <shutdown>10000</shutdown>
+        </action>
+    </item>
+</sensor_temp>
+</scene>
+<scene name="com.tencent.tmgp.sgame|com.tencent.tmgp.pubgm" id="100021">
+<sensor_temp name="shell_temp" type="22" enable="true" min_temp="0" step="5" to_celsius="1000">
+</sensor_temp>
+<sensor_temp name="battery" type="9" enable="true" min_temp="-20" step="5" to_celsius="1000">
+    <item>
+        <thresholds>26</thresholds>
+        <thresholds_clr>24</thresholds_clr>
+        <action>
+            <cpu>1844000</cpu>
+            <cpu_a15>1421000</cpu_a15>
+            <gpu>533000000</gpu>
+            <ucurrent>900</ucurrent>
+            <camera_fps>2</camera_fps>
+            <lcd>0</lcd>
+            <app_action>0</app_action>
+        </action>
+    </item>
+    <item>
+        <thresholds>32</thresholds>
+        <thresholds_clr>30</thresholds_clr>
+        <action>
+            <cpu>1709000</cpu>
+            <cpu_a15>1421000</cpu_a15>
+            <gpu>533000000</gpu>
+            <ucurrent>900</ucurrent>
+            <camera_fps>2</camera_fps>
+            <lcd>0</lcd>
+            <app_action>1</app_action>
+        </action>
+    </item>
+    <item>
+        <thresholds>37</thresholds>
+        <thresholds_clr>35</thresholds_clr>
+        <action>
+            <cpu>1402000</cpu>
+            <cpu_a15>1421000</cpu_a15>
+            <gpu>400000000</gpu>
+            <ucurrent>900</ucurrent>
+            <camera_fps>2</camera_fps>
+            <lcd>11</lcd>
+            <app_action>2</app_action>
+        </action>
+    </item>
+    <item>
+        <thresholds>45</thresholds>
+        <thresholds_clr>43</thresholds_clr>
+        <action>
+            <cpu>999000</cpu>
+            <cpu_a15>903000</cpu_a15>
+            <gpu>400000000</gpu>
+            <ucurrent>900</ucurrent>
+            <camera_fps>2</camera_fps>
+            <lcd>12</lcd>
+            <app_action>3</app_action>
+            <thermal_safe_mode>0</thermal_safe_mode>
+        </action>
+    </item>
+    <item>
+        <thresholds>51</thresholds>
+        <thresholds_clr>49</thresholds_clr>
+        <action>
+            <cpu>533000</cpu>
+            <cpu_a15>903000</cpu_a15>
+            <gpu>400000000</gpu>
+            <ucurrent>900</ucurrent>
+            <camera_fps>2</camera_fps>
+            <lcd>16</lcd>
+            <app_action>3</app_action>
+            <thermal_safe_mode>1</thermal_safe_mode>
+        </action>
+    </item>
+    <item>
+        <thresholds>75</thresholds>
+        <thresholds_clr>73</thresholds_clr>
+        <action>
+            <shutdown>10000</shutdown>
+        </action>
+    </item>
+</sensor_temp>
+<sensor_temp name="cpu" type="0" enable="true" min_temp="0" step="5">
+    <item>
+        <thresholds>75</thresholds>
+        <thresholds_clr>73</thresholds_clr>
+        <action>
+            <shutdown>10000</shutdown>
+        </action>
+    </item>
+</sensor_temp>
+<sensor_temp name="ucurrent" type="2" enable="true" min_temp="0" step="5">
+    <item>
+        <thresholds>85</thresholds>
+        <thresholds_clr>83</thresholds_clr>
+        <action>
+            <shutdown>10000</shutdown>
+        </action>
+    </item>
+</sensor_temp>
+<sensor_temp name="pa" type="1" enable="true" min_temp="0" step="5">
+    <item>
+        <thresholds>75</thresholds>
+        <thresholds_clr>73</thresholds_clr>
+        <action>
+            <shutdown>10000</shutdown>
+        </action>
+    </item>
+</sensor_temp>
+</scene>
+<scene name="com.tencent.tmgp.speedmobile" id="100022">
+<sensor_temp name="shell_temp" type="22" enable="true" min_temp="0" step="5" to_celsius="1000">
+</sensor_temp>
+<sensor_temp name="battery" type="9" enable="true" min_temp="-20" step="5" to_celsius="1000">
+    <item>
+        <thresholds>26</thresholds>
+        <thresholds_clr>24</thresholds_clr>
+        <action>
+            <cpu>1709000</cpu>
+            <cpu_a15>1421000</cpu_a15>
+            <gpu>533000000</gpu>
+            <ucurrent>900</ucurrent>
+            <camera_fps>2</camera_fps>
+            <lcd>0</lcd>
+            <app_action>0</app_action>
+        </action>
+    </item>
+    <item>
+        <thresholds>32</thresholds>
+        <thresholds_clr>30</thresholds_clr>
+        <action>
+            <cpu>1402000</cpu>
+            <cpu_a15>1421000</cpu_a15>
+            <gpu>400000000</gpu>
+            <ucurrent>900</ucurrent>
+            <camera_fps>2</camera_fps>
+            <lcd>0</lcd>
+            <app_action>1</app_action>
+        </action>
+    </item>
+    <item>
+        <thresholds>37</thresholds>
+        <thresholds_clr>35</thresholds_clr>
+        <action>
+            <cpu>1402000</cpu>
+            <cpu_a15>1421000</cpu_a15>
+            <gpu>400000000</gpu>
+            <ucurrent>900</ucurrent>
+            <camera_fps>2</camera_fps>
+            <lcd>11</lcd>
+            <app_action>2</app_action>
+        </action>
+    </item>
+    <item>
+        <thresholds>44</thresholds>
+        <thresholds_clr>42</thresholds_clr>
+        <action>
+            <cpu>999000</cpu>
+            <cpu_a15>903000</cpu_a15>
+            <gpu>400000000</gpu>
+            <ucurrent>900</ucurrent>
+            <camera_fps>2</camera_fps>
+            <lcd>12</lcd>
+            <app_action>3</app_action>
+            <thermal_safe_mode>0</thermal_safe_mode>
+        </action>
+    </item>
+    <item>
+        <thresholds>51</thresholds>
+        <thresholds_clr>49</thresholds_clr>
+        <action>
+             <cpu>533000</cpu>
+            <cpu_a15>903000</cpu_a15>
+            <gpu>400000000</gpu>
+            <ucurrent>900</ucurrent>
+            <camera_fps>2</camera_fps>
+            <lcd>16</lcd>
+            <app_action>3</app_action>
+            <thermal_safe_mode>1</thermal_safe_mode>
+        </action>
+    </item>
+    <item>
+        <thresholds>75</thresholds>
+        <thresholds_clr>73</thresholds_clr>
+        <action>
+            <shutdown>10000</shutdown>
+        </action>
+    </item>
+</sensor_temp>
+<sensor_temp name="cpu" type="0" enable="true" min_temp="0" step="5">
+    <item>
+        <thresholds>75</thresholds>
+        <thresholds_clr>73</thresholds_clr>
+        <action>
+            <shutdown>10000</shutdown>
+        </action>
+    </item>
+</sensor_temp>
+<sensor_temp name="ucurrent" type="2" enable="true" min_temp="0" step="5">
+    <item>
+        <thresholds>85</thresholds>
+        <thresholds_clr>83</thresholds_clr>
+        <action>
+            <shutdown>10000</shutdown>
+        </action>
+    </item>
+</sensor_temp>
+<sensor_temp name="pa" type="1" enable="true" min_temp="0" step="5">
+    <item>
+        <thresholds>75</thresholds>
+        <thresholds_clr>73</thresholds_clr>
+        <action>
+            <shutdown>10000</shutdown>
+        </action>
+    </item>
+</sensor_temp>
+</scene>
+<scene name="com.netease.hyxd*" id="100023">
+<sensor_temp name="shell_temp" type="22" enable="true" min_temp="0" step="5" to_celsius="1000">
+</sensor_temp>
+<sensor_temp name="battery" type="9" enable="true" min_temp="-20" step="5" to_celsius="1000">
+    <item>
+        <thresholds>26</thresholds>
+        <thresholds_clr>24</thresholds_clr>
+        <action>
+            <cpu>1709000</cpu>
+            <cpu_a15>1421000</cpu_a15>
+            <gpu>533000000</gpu>
+            <ucurrent>900</ucurrent>
+            <camera_fps>2</camera_fps>
+            <lcd>0</lcd>
+            <app_action>0</app_action>
+        </action>
+    </item>
+    <item>
+        <thresholds>32</thresholds>
+        <thresholds_clr>30</thresholds_clr>
+        <action>
+            <cpu>1402000</cpu>
+            <cpu_a15>1421000</cpu_a15>
+            <gpu>533000000</gpu>
+            <ucurrent>900</ucurrent>
+            <camera_fps>2</camera_fps>
+            <lcd>0</lcd>
+            <app_action>1</app_action>
+        </action>
+    </item>
+    <item>
+        <thresholds>38</thresholds>
+        <thresholds_clr>36</thresholds_clr>
+        <action>
+            <cpu>1402000</cpu>
+            <cpu_a15>1421000</cpu_a15>
+            <gpu>400000000</gpu>
+            <ucurrent>900</ucurrent>
+            <camera_fps>2</camera_fps>
+            <lcd>11</lcd>
+            <app_action>2</app_action>
+        </action>
+    </item>
+    <item>
+        <thresholds>45</thresholds>
+        <thresholds_clr>43</thresholds_clr>
+        <action>
+            <cpu>999000</cpu>
+            <cpu_a15>903000</cpu_a15>
+            <gpu>400000000</gpu>
+            <ucurrent>900</ucurrent>
+            <camera_fps>2</camera_fps>
+            <lcd>12</lcd>
+            <app_action>3</app_action>
+            <thermal_safe_mode>0</thermal_safe_mode>
+        </action>
+    </item>
+    <item>
+        <thresholds>51</thresholds>
+        <thresholds_clr>49</thresholds_clr>
+        <action>
+            <cpu>533000</cpu>
+            <cpu_a15>903000</cpu_a15>
+            <gpu>400000000</gpu>
+            <ucurrent>900</ucurrent>
+            <camera_fps>2</camera_fps>
+            <lcd>16</lcd>
+            <app_action>3</app_action>
+            <thermal_safe_mode>1</thermal_safe_mode>
+        </action>
+    </item>
+    <item>
+        <thresholds>75</thresholds>
+        <thresholds_clr>73</thresholds_clr>
+        <action>
+            <shutdown>10000</shutdown>
+        </action>
+    </item>
+</sensor_temp>
+<sensor_temp name="cpu" type="0" enable="true" min_temp="0" step="5">
+    <item>
+        <thresholds>75</thresholds>
+        <thresholds_clr>73</thresholds_clr>
+        <action>
+            <shutdown>10000</shutdown>
+        </action>
+    </item>
+</sensor_temp>
+<sensor_temp name="ucurrent" type="2" enable="true" min_temp="0" step="5">
+    <item>
+        <thresholds>85</thresholds>
+        <thresholds_clr>83</thresholds_clr>
+        <action>
+            <shutdown>10000</shutdown>
+        </action>
+    </item>
+</sensor_temp>
+<sensor_temp name="pa" type="1" enable="true" min_temp="0" step="5">
+    <item>
+        <thresholds>75</thresholds>
+        <thresholds_clr>73</thresholds_clr>
+        <action>
+            <shutdown>10000</shutdown>
+        </action>
+    </item>
+</sensor_temp>
+</scene>
+<scene name="com.tencent.tmgp.pubgmhd|com.tencent.ig|com.mobile.legends|com.pubg.krmobile" id="100025">
+<sensor_temp name="shell_temp" type="22" enable="true" min_temp="0" step="5" to_celsius="1000">
+</sensor_temp>
+<sensor_temp name="battery" type="9" enable="true" min_temp="-20" step="5" to_celsius="1000">
+    <item>
+        <thresholds>26</thresholds>
+        <thresholds_clr>24</thresholds_clr>
+        <action>
+            <cpu>1402000</cpu>
+            <cpu_a15>1421000</cpu_a15>
+            <gpu>533000000</gpu>
+            <ucurrent>900</ucurrent>
+            <camera_fps>2</camera_fps>
+            <lcd>0</lcd>
+            <app_action>0</app_action>
+        </action>
+    </item>
+    <item>
+        <thresholds>32</thresholds>
+        <thresholds_clr>30</thresholds_clr>
+        <action>
+            <cpu>1402000</cpu>
+            <cpu_a15>1421000</cpu_a15>
+            <gpu>533000000</gpu>
+            <ucurrent>900</ucurrent>
+            <camera_fps>2</camera_fps>
+            <lcd>0</lcd>
+            <app_action>1</app_action>
+        </action>
+    </item>
+    <item>
+        <thresholds>37</thresholds>
+        <thresholds_clr>35</thresholds_clr>
+        <action>
+            <cpu>999000</cpu>
+            <cpu_a15>1421000</cpu_a15>
+            <gpu>400000000</gpu>
+            <ucurrent>900</ucurrent>
+            <camera_fps>2</camera_fps>
+            <lcd>11</lcd>
+            <app_action>2</app_action>
+        </action>
+    </item>
+    <item>
+        <thresholds>45</thresholds>
+        <thresholds_clr>43</thresholds_clr>
+        <action>
+            <cpu>999000</cpu>
+            <cpu_a15>903000</cpu_a15>
+            <gpu>400000000</gpu>
+            <ucurrent>900</ucurrent>
+            <camera_fps>2</camera_fps>
+            <lcd>12</lcd>
+            <app_action>3</app_action>
+            <thermal_safe_mode>0</thermal_safe_mode>
+        </action>
+    </item>
+    <item>
+        <thresholds>51</thresholds>
+        <thresholds_clr>49</thresholds_clr>
+        <action>
+            <cpu>533000</cpu>
+            <cpu_a15>903000</cpu_a15>
+            <gpu>400000000</gpu>
+            <ucurrent>900</ucurrent>
+            <camera_fps>2</camera_fps>
+            <lcd>16</lcd>
+            <app_action>3</app_action>
+            <thermal_safe_mode>1</thermal_safe_mode>
+        </action>
+    </item>
+    <item>
+        <thresholds>75</thresholds>
+        <thresholds_clr>73</thresholds_clr>
+        <action>
+            <shutdown>10000</shutdown>
+        </action>
+    </item>
+</sensor_temp>
+<sensor_temp name="cpu" type="0" enable="true" min_temp="0" step="5">
+    <item>
+        <thresholds>75</thresholds>
+        <thresholds_clr>73</thresholds_clr>
+        <action>
+            <shutdown>10000</shutdown>
+        </action>
+    </item>
+</sensor_temp>
+<sensor_temp name="ucurrent" type="2" enable="true" min_temp="0" step="5">
+    <item>
+        <thresholds>85</thresholds>
+        <thresholds_clr>83</thresholds_clr>
+        <action>
+            <shutdown>10000</shutdown>
+        </action>
+    </item>
+</sensor_temp>
+<sensor_temp name="pa" type="1" enable="true" min_temp="0" step="5">
+    <item>
+        <thresholds>75</thresholds>
+        <thresholds_clr>73</thresholds_clr>
+        <action>
+            <shutdown>10000</shutdown>
+        </action>
+    </item>
+</sensor_temp>
+</scene>
+<scene name="com.netease.zjz*|com.Asphalt.Airborne8|com.t2ksports.nba2k16android|com.t2ksports.nba2k17android|com.miHoYo.bh3*|com.netease.onmyoji*|cc.thedream.qinsmoon*" id="100020">
+<sensor_temp name="shell_temp" type="22" enable="true" min_temp="0" step="5" to_celsius="1000">
+    <item>
+        <thresholds>35</thresholds>
+        <thresholds_clr>33</thresholds_clr>
+        <action>
+            <ipa_switch>0</ipa_switch>
+            <ipa_temp>0</ipa_temp>
+            <ipa_power>0</ipa_power>
+            <uvoltage>0</uvoltage>
+            <ucurrent>470</ucurrent>
+            <camera_fps>2</camera_fps>
+            <lcd>11</lcd>
+            <app_action>1</app_action>
+        </action>
+    </item>
+    <item>
+        <thresholds>37</thresholds>
+        <thresholds_clr>35</thresholds_clr>
+        <action>
+            <ipa_switch>0</ipa_switch>
+            <ipa_temp>0</ipa_temp>
+            <ipa_power>0</ipa_power>
+            <uvoltage>5</uvoltage>
+            <ucurrent>900</ucurrent>
+            <camera_fps>2</camera_fps>
+            <lcd>11</lcd>
+            <app_action>2</app_action>
+        </action>
+    </item>
+    <item>
+        <thresholds>40</thresholds>
+        <thresholds_clr>37</thresholds_clr>
+        <action>
+            <ipa_switch>0</ipa_switch>
+            <ipa_temp>0</ipa_temp>
+            <ipa_power>2500</ipa_power>
+            <uvoltage>5</uvoltage>
+            <ucurrent>900</ucurrent>
+            <camera_fps>2</camera_fps>
+            <lcd>11</lcd>
+            <app_action>3</app_action>
+        </action>
+    </item>
+    <item>
+        <thresholds>42</thresholds>
+        <thresholds_clr>40</thresholds_clr>
+        <action>
+            <ipa_switch>0</ipa_switch>
+            <ipa_temp>0</ipa_temp>
+            <ipa_power>1300</ipa_power>
+            <uvoltage>5</uvoltage>
+            <ucurrent>900</ucurrent>
+            <camera_fps>2</camera_fps>
+            <lcd>11</lcd>
+        </action>
+    </item>
+    <item>
+        <thresholds>53</thresholds>
+        <thresholds_clr>50</thresholds_clr>
+        <action>
+            <ipa_switch>0</ipa_switch>
+            <ipa_temp>0</ipa_temp>
+            <ipa_power>1000</ipa_power>
+            <uvoltage>5</uvoltage>
+            <ucurrent>100</ucurrent>
+            <camera_fps>2</camera_fps>
+            <lcd>16</lcd>
+        </action>
+    </item>
+</sensor_temp>
+<sensor_temp name="cpu" type="0" enable="true" min_temp="0" step="5">
+    <item>
+        <thresholds>75</thresholds>
+        <thresholds_clr>73</thresholds_clr>
+        <action>
+            <shutdown>10000</shutdown>
+        </action>
+    </item>
+</sensor_temp>
+<sensor_temp name="ucurrent" type="2" enable="true" min_temp="0" step="5">
+    <item>
+        <thresholds>75</thresholds>
+        <thresholds_clr>73</thresholds_clr>
+        <action>
+            <shutdown>10000</shutdown>
+        </action>
+    </item>
+</sensor_temp>
+<sensor_temp name="pa" type="1" enable="true" min_temp="0" step="5">
+    <item>
+        <thresholds>75</thresholds>
+        <thresholds_clr>73</thresholds_clr>
+        <action>
+            <shutdown>10000</shutdown>
+        </action>
+    </item>
+</sensor_temp>
+<sensor_temp name="battery" type="9" enable="true" min_temp="-20" step="5" to_celsius="1000">    
+    <item>
+        <thresholds>48</thresholds>
+        <thresholds_clr>45</thresholds_clr>
+        <action>
+            <thermal_safe_mode>0</thermal_safe_mode>
+        </action>
+    </item>
+    <item>
+        <thresholds>54</thresholds>
+        <thresholds_clr>51</thresholds_clr>
+        <action>
+            <thermal_safe_mode>1</thermal_safe_mode>
+        </action>
+    </item>
+    <item>
+        <thresholds>70</thresholds>
+        <thresholds_clr>68</thresholds_clr>
+        <action>
+            <shutdown>10000</shutdown>
+        </action>
+    </item>
+</sensor_temp>
+</scene>
+
+<scene name="battery_low" id="30000">
+    <cpu_a15>1421000</cpu_a15>
+    <gpu>400000000</gpu>
+    <eas_all>-20</eas_all>
+ </scene>
+<scene name="battery_critical" id="30001">
+    <cpu>999000</cpu>
+    <cpu_a15>1421000</cpu_a15>
+    <gpu>400000000</gpu>
+    <eas_all>-20</eas_all>
+ </scene>
+<flash_disable_by_low_temp sensor_type="9">-5</flash_disable_by_low_temp>
+<thermal_safe_mode_threshold sensor_type="0">56</thermal_safe_mode_threshold>
+</thermal>

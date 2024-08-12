@@ -1,0 +1,107 @@
+#############################################################################
+########"      __        __               _                     "############
+########"      \ \      / /_ _ _ __ _ __ (_)_ __   __ _         "############
+########"       \ \ /\ / / _` | '__| '_ \| | '_ \ / _` |        "############
+########"        \ V  V / (_| | |  | | | | | | | | (_| |        "############
+########"         \_/\_/ \__,_|_|  |_| |_|_|_| |_|\__, |        "############
+########"                                         |___/         "############
+########"                                                       "############
+########"   ONLY DRIVER PROPS ALLOWED IN THIS SECTION BEGIN     "############
+
+
+########"                                                       "############
+########"                                                       "############
+########"   ONLY DRIVER PROPS ALLOWED IN THIS SECTION END       "############
+#############################################################################
+
+#############################################################################
+########"      __        __               _                     "############
+########"      \ \      / /_ _ _ __ _ __ (_)_ __   __ _         "############
+########"       \ \ /\ / / _` | '__| '_ \| | '_ \ / _` |        "############
+########"        \ V  V / (_| | |  | | | | | | | | (_| |        "############
+########"         \_/\_/ \__,_|_|  |_| |_|_|_| |_|\__, |        "############
+########"                                         |___/         "############
+########"                                                       "############
+########"   ONLY PROTOCOL PROPS ALLOWED IN THIS SECTION BEGIN   "############
+ro.config.cdma.ecclist=+110,+112,+911,+999,+119,+120,+122
+ro.config.hw_ecclist_nocard=+120,+122
+ro.config.hw_ecclist_withcard=+112
+ro.config.hw_fake_ecc_list=110,120,122,999,119
+ro.config.hw_globalEcc=false
+ro.radio.vsim_support=true
+ro.radio.vsim_modem_count=4
+ro.radio.vsim_dsds_version=1
+ro.config.hw_volte_on=true
+ro.config.hw_vtlte_on=true
+ro.config.chr_call_tracker=true
+########"                                                       "############
+########"                                                       "############
+########"   ONLY PROTOCOL PROPS ALLOWED IN THIS SECTION END     "############
+#############################################################################
+
+
+#############################################################################
+########"      __        __               _                     "############
+########"      \ \      / /_ _ _ __ _ __ (_)_ __   __ _         "############
+########"       \ \ /\ / / _` | '__| '_ \| | '_ \ / _` |        "############
+########"        \ V  V / (_| | |  | | | | | | | | (_| |        "############
+########"         \_/\_/ \__,_|_|  |_| |_|_|_| |_|\__, |        "############
+########"                                         |___/         "############
+########"                                                       "############
+########"   ONLY APP TEAM PROPS ALLOWED IN THIS SECTION BEGIN   "############
+#####################################################################################
+######## 1.APP MANUFACTURE TEAM BEGIN
+###########1.1.MMI BEGIN
+
+###########1.1.MMI END
+
+###########1.2.PROJECT MENU BEGIN
+
+###########1.2.PROJECT MENU END
+
+###########1.3.RUN IN TEST BEGIN
+
+###########1.3.RUN IN TEST END
+######## 1.APP MANUFACTURE TEAM END
+#####################################################################################
+######## 2.BASEAPP TEAM BEGIN
+ro.product.member.level=10011
+ro.config.hw_nfc_def_route=1
+ro.com.baidu.baidumap=/hw_oem/xml/BaiduMap
+ro.com.baidu.searchbox=/hw_oem/xml/BaiduSearch/libBDoeminfo_baidusearch.so
+ro.cid.path.qunar=/hw_oem/xml/Qunar/
+ro.build.dianping_sourcefile=/hw_oem/xml/Dianping/dpsource.source
+ro.channel.cn.wps.moffice_eng=mul00172
+ro.config.hw_channel_info=1,0,460,1,0
+######## 2.BASEAPP TEAM END
+#####################################################################################
+######## 3.MULTI-MEDIA TEAM BEGIN
+ro.config.hw_nfc_msimce=true
+ro.config.nfc_hasese=true
+######## 3.MULTI-MEDIA TEAM END
+#####################################################################################
+######## 4.FRAMEWORK TEAM BEGIN
+
+######## 4.FRAMEWORK TEAM END
+#####################################################################################
+######## 5.DATA SERVICE TEAM BEGIN
+ro.hwpp_ds_fail=111,32,33,35
+ro.config.hw_show_4G_Plus_icon=true
+cdma.dormancy.mode=1
+cdma.dormancy.screen=3
+######## 5.DATA SERVICE TEAM END
+#####################################################################################
+######## 6.APPLET TEAM BEGIN
+
+######## 6.APPLET TEAM END
+#####################################################################################
+######## 7.PRODUCT INFO BEGIN
+ro.product.name=STF-AL00
+ro.product.model=STF-AL00
+ro.build.id=HUAWEISTF-AL00
+######## 7.PRODUCT INFO END
+#####################################################################################
+########"                                                       "############
+########"                                                       "############
+########"   ONLY APP TEAM PROPS ALLOWED IN THIS SECTION END     "############
+#############################################################################

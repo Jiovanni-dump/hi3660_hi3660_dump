@@ -1,0 +1,54 @@
+<DisplayEngineConfig>
+	<id>23</id>
+	<updated>2016-12-24</updated>
+	<feature name="DimmingFrames">
+		<mode name="FEATURE_CONTRAST">
+			<param name="MODE_VIDEO">60</param>
+			<param name="MODE_VIDEO_DISABLE">60</param>
+			<param name="MODE_IMAGE">60</param>
+			<param name="MODE_IMAGE_DISABLE">60</param>
+			<param name="MODE_SRE">90</param>
+			<param name="MODE_SRE_DISABLE">90</param>
+		</mode>
+		<mode name="FEATURE_BLC">
+			<param name="MODE_VIDEO">60</param>
+			<param name="MODE_VIDEO_DISABLE">60</param>
+		</mode>
+	</feature>
+	<feature name="ComponentMapping">
+		<mode name="COMPONENT_SHARP">
+		</mode>
+		<mode name="COMPONENT_CONTRAST">
+			<param name="UI">FEATURE_CONTRAST</param>
+			<param name="VIDEO">COMPONENT_SW_CONTRAST</param>
+			<param name="VIDEO">COMPONENT_SW_ACM</param>
+		</mode>
+		<mode name="COMPONENT_BLC">
+			<param name="DEFAULT">FEATURE_BLC</param>
+		</mode>
+		<mode name="COMPONENT_GMP">
+		</mode>
+		<mode name="COMPONENT_XCC">
+		</mode>
+		<mode name="COMPONENT_HUE">
+		</mode>
+		<mode name="COMPONENT_SAT">
+		</mode>
+		<mode name="COMPONENT_GAMMA">
+		</mode>
+		<mode name="COMPONENT_IGAMMA">
+		</mode>
+	</feature>
+	<feature name="Arbiter">
+		<mode name="ComponentPriority">
+			<param name="COMPONENT_CONTRAST">DE_FEATURE_SRE, DE_FEATURE_CONTRAST</param>
+		</mode>
+		<mode name="ComponentInnerFilter">
+			<param name="DE_SCENE_ACTION_AMBIENT_CHANGE">FEATURE_CONTRAST, FEATURE_BLC</param>
+		</mode>
+		<mode name="CTRL">
+			<param name="Enable">1</param>
+			<param name="Interval">2</param>
+		</mode>
+	</feature>
+</DisplayEngineConfig>

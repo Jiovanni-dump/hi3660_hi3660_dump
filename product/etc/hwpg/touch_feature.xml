@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+PowerGenie config file
+-->
+<list>
+    <array type="touch_feature" version="1.0">
+        <item>com.tencent.tmgp.sgame</item>
+    </array>
+</list>
+
+

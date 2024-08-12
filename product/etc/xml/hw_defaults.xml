@@ -1,0 +1,61 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+/**
+ * Copyright (c) 2009, The Android Open Source Project
+ *
+ * Licensed under the Apache License, Version 2.0 (the "License");
+ * you may not use this file except in compliance with the License.
+ * You may obtain a copy of the License at
+ *
+ *     http://www.apache.org/licenses/LICENSE-2.0
+ *
+ * Unless required by applicable law or agreed to in writing, software
+ * distributed under the License is distributed on an "AS IS" BASIS,
+ * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+ * See the License for the specific language governing permissions and
+ * limitations under the License.
+ */
+-->
+
+<resources>
+    <!--******************************** 1.PROTOCOL TEAM BEGIN -->
+    <!--******************************** 1.PROTOCOL TEAM END -->
+    <!--******************************** 2.APP MANUFACTURE TEAM BEGIN -->
+
+    <!--******************************** 2.APP MANUFACTURE TEAM END -->
+    <!--******************************** 3.BASEAPP TEAM BEGIN -->
+    <fraction settings.global.convert_brightnesss_factor="320%"/>
+    <!-- DTS2015110304272    z00294345 begin-->
+    <!--integer settings.global.wifi_sleep_policy="1"/-->
+    <!-- DTS2015110304272    z00294345 end-->
+    <integer settings.system.screen_brightness="128"/>
+
+    <!--DTS2015122207783 g00303690 20160112 begin -->
+    <!--<integer vibrate_on_message="1"/>-->
+    <!--DTS2015122207783 g00303690 20160112 end -->
+    <string no_write_sms_package="com.huawei.android.ds,com.android.mediacenter,com.huawei.hwid,com.huawei.security,com.huawei.hisuite,com.android.phone,com.huawei.remoteassistant"/>
+    <integer settings.system.smart_backlight_enable="1"/>
+    <integer ca_settings_on="1"/>
+    <integer settings.secure.game_power_save_mode="1"/>
+    <integer settings.secure.game_key_control_mode="2"/>
+    <integer settings.secure.game_dnd_mode="2"/>
+    <integer settings.secure.game_gesture_disabled_mode="2"/>
+    <integer settings.secure.game_booster_mode="2"/>
+    <!--******************************** 3.BASEAPP TEAM END -->
+    <!--******************************** 4.MULTI-MEDIA TEAM BEGIN -->
+    <integer settings.system.sws_mode="3"/>
+    <integer settings.secure.dts_mode="0"/>
+    <integer settings.global.cover_type="1"/>
+    <!--******************************** 4.MULTI-MEDIA TEAM END -->
+    <!--******************************** 5.FRAMEWORK TEAM BEGIN -->
+    <!--******************************** 5.FRAMEWORK TEAM END -->
+    <!--******************************** 6.DATA SERVICE TEAM BEGIN -->
+
+    <!--******************************** 6.DATA SERVICE TEAM END -->
+    <!--******************************** 7.APPLET TEAM BEGIN -->
+
+    <!--******************************** 7.APPLET TEAM END -->
+    <!--******************************** 8.CUSTOM TEAM BEGIN -->
+    <bool hw_default_camera_cosplay_cust="true"/>
+    <!--******************************** 8.CUSTOM TEAM END -->
+</resources>
