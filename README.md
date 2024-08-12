@@ -1,0 +1,14 @@
+# generic_a15-user 8.0.0 OPR6.170623.010 eng.jenkin.20190125.115505 test-keys
+- manufacturer: unknown
+- platform: hi3660
+- codename: hi3660
+- flavor: hi3660-user
+- release: 8.0.0
+- id: OPR6.170623.010
+- incremental: eng.jenkin.20190125.115505
+- tags: test-keys
+- fingerprint: Huawei/generic_a15/generic_a15:8.0.0/OPR6.170623.010/jenkin01251155:user/test-keys
+- is_ab: false
+- brand: hi3660
+- branch: generic_a15-user-8.0.0-OPR6.170623.010-eng.jenkin.20190125.115505-test-keys
+- repo: hi3660_hi3660_dump
