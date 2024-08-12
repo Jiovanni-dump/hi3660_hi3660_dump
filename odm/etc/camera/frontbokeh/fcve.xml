@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="GB2312"?>
+<Config>
+    <Global>
+        <contractAdjust_flag>0</contractAdjust_flag> <!--0:关闭对比度调整,1: 开启对比度调整 -->
+        <colorAdjust_flag>0</colorAdjust_flag><!--0:关闭颜色调整,1:开启颜色调整 -->
+        <lumaAdjust_flag>0</lumaAdjust_flag><!--0:关闭亮度调整,1:开启亮度调整 -->
+    </Global>
+    <ColorAdjust>
+        <contrast_param>0</contrast_param>          <!-- [0, 20]   : 对比度参数 越大 对比度增强越大 -->
+        <color_adj_ratio>1.0</color_adj_ratio>        <!-- [1.0, 1.6]  : 饱和度参数 越大 饱和度越高 -->
+    </ColorAdjust>
+    <LumaAdjust>
+        <luma_adjust_gain>0</luma_adjust_gain>      <!-- [-20, 20] -->
+    </LumaAdjust>
+	<BlurEffect>
+	    <smooth_transition>0</smooth_transition>   <!-- smooth transistion in froeground and background boundary, 0: use hard transition; 1: use soft transition-->
+	    <circle_radius>2</circle_radius>   <!-- radius in circle filtering, [1, 10]  -->
+	</BlurEffect>
+    <FaceCheck>
+        <ratio_to_image>0.1</ratio_to_image> <!-- [0, 1], face, whose size is less than this_ratio * min(image_width, image_height), will be filtered -->
+        <ratio_to_major_face>0.3</ratio_to_major_face> <!-- [0, 1], face, whose size is less than this_ratio * largest_face_size, will be filtered -->
+    </FaceCheck>
+</Config>

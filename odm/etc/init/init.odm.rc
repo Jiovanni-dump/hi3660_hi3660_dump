@@ -1,0 +1,55 @@
+on early-init
+
+on init
+
+on early-fs
+
+on fs
+
+on post-fs
+
+on post-fs-data
+
+on early-boot
+
+on boot
+
+#irda
+    chown root system /dev/ttyAMA0
+    chown system irda /sys/class/irda/irda_maxim/power_cfg
+    write /sys/class/irda/irda_maxim/power_cfg 1
+    chown system system /sys/class/irda/irda_chip/ir_chip_type
+
+#voltage
+    chown system system /sys/class/voltage/voltage/vol_enable
+    chown system system /sys/class/voltage/voltage/vol_value
+    chown system system /sys/class/voltage/voltage/vol_values
+
+    start cs-set
+
+# Service add below.
+
+# cpuset
+service cs-set /system/vendor/bin/cs-set
+    class main
+    user root
+    disabled
+    oneshot
+
+service HwServiceHost /system/bin/HwServiceHost hi3660 STF
+    class main
+    user cameraserver
+    group audio camera inet net_bt net_bt_admin net_bw_acct drmrpc mediadrm system dsm sdcard_rw
+
+service vr_daemon /system/bin/vr_daemon
+    class main
+    user system
+    group system
+    socket vr_daemon stream 660 root system graphics
+
+# watercheck
+service water_check /vendor/bin/water_check
+    class late_start
+    user system
+    group system
+
